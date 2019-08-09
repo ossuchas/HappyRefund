@@ -1,4 +1,4 @@
-# SB Admin rewritten in Angular8 and Bootstrap 4
+# Happy Refund in Angular8 and Bootstrap 4
 
 Simple Dashboard Admin App built using Angular 8 and Bootstrap 4
 
