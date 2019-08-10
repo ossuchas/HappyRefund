@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { TestService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-agreview-page',
@@ -9,9 +10,10 @@ import { routerTransition } from '../../router.animations';
 })
 export class AgreviewPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceTest: TestService) { }
 
   ngOnInit() {
+      this.serviceTest.helloWorld();
   }
 
 }
