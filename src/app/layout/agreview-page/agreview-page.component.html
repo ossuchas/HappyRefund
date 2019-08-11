@@ -5,6 +5,10 @@
     <div class="container">
         <div class="mat-elevation-z8">
             <div class="card-header">ข้อมูลแสดงรายการลูกค้า</div>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
+        <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
             <mat-table [dataSource]="listData" matSort>
                 <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
                 <mat-row *matRowDef="let row; columns:displayedColumn;"></mat-row>
@@ -12,10 +16,10 @@
                     <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
                     <mat-cell *matCellDef="let row">
                         <button mat-icon-button (click)="onEdit(row)">
-                            <mat-icon>border_color</mat-icon>
+                            <mat-icon>zoom_in</mat-icon>
                         </button>
-                        <button mat-icon-button color="warn" (click)="onDelete(row.hyrf_id)">
-                            <mat-icon>delete_outline</mat-icon>
+                        <button mat-icon-button (click)="onView(row.hyrf_id)">
+                            <mat-icon>image_search</mat-icon>
                         </button>
                     </mat-cell>
                 </ng-container>
@@ -60,7 +64,7 @@
                     <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number }}</mat-cell>
                 </ng-container>
             </mat-table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>
         </div>
     </div>
 

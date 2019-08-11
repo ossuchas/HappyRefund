@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { TestService, CrmcontactrefundService } from 'src/app/shared/services';
+import { CrmcontactrefundService } from 'src/app/shared/services';
 
 
 import {MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator} from '@angular/material';
@@ -28,8 +28,8 @@ export class AgreviewPageComponent implements OnInit {
 
 
     listData: MatTableDataSource<any>;
-    // displayedColumn: string[] = ['Options', 'DepartmentID', 'DepartmentName'];
-    displayedColumn: string[] = ['Options', 'project', 'unitnumber', 'transferdateapprove', 'contactid', 'fullname', 'remainingtotalamount'];
+    displayedColumn: string[] = ['Options', 'project', 'unitnumber',
+    'transferdateapprove', 'contactid', 'fullname', 'remainingtotalamount'];
 
     @ViewChild(MatSort, null) sort: MatSort;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -62,18 +62,12 @@ export class AgreviewPageComponent implements OnInit {
 
   }
 
-  onDelete(id: number) {
+  onView(id: number) {
     console.log(id);
-    // if (confirm('Are you sure to delete?')) {
-    //   this.service.deleteDepartment(id).subscribe( res => {
-    //     this.refreshDepList();
-    //     this.snackBar.open(res['message'].toString(), '', {
-    //       duration: 5000,
-    //       verticalPosition: 'top'
-    //     });
-
-    //   });
-    // }
+        this.snackBar.open('View ' + id, '', {
+          duration: 3000,
+        });
+        // window.open('google.com', '_blank');
   }
 
   onAdd() {
