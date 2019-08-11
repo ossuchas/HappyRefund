@@ -30,7 +30,7 @@ export class AgreviewPageComponent implements OnInit {
 
     listData: MatTableDataSource<any>;
     displayedColumn: string[] = ['Options', 'project', 'unitnumber',
-    'transferdateapprove', 'contactid', 'fullname', 'remainingtotalamount'];
+    'transferdateapprove', 'contactid', 'fullname', 'remainingtotalamount', 'tf01_appv_flag'];
 
     @ViewChild(MatSort, null) sort: MatSort;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -59,8 +59,6 @@ export class AgreviewPageComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '55%';
-    // dialogConfig.width = '500px';
-    // dialogConfig.height = '800px';
     this.dialog.open(Agedit01PageComponent, dialogConfig);
 
   }

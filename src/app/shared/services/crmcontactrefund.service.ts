@@ -39,14 +39,14 @@ export class CrmcontactrefundService {
 //     );
 //   }
 
-//   // PUT
-//   updateDepartment(data): Observable<Department> {
-//     return this.http.put<Department>(this.APIUrl + '/department/' + data.DepartmentID, JSON.stringify(data), this.httpOptions)
-//     .pipe(
-//       retry(1),
-//       catchError(this.errorHandl)
-//     );
-//   }
+  // PUT
+  updateRefund(data): Observable<CrmContactRefund> {
+    return this.http.put<CrmContactRefund>(this.APIUrl + '/refund/' + data.hyrf_id, JSON.stringify(data), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
+  }
 
   // Error handling
   errorHandl(error) {

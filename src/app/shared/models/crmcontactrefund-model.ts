@@ -20,19 +20,23 @@ export class CrmContactRefund {
 
     tf01_appv_flag:	string;
     tf01_appv_date:	Date;
+    tf01_appv_by: string;
     tf01_remarks: string;
 
     tf02_appv_flag:	string;
     tf02_appv_date:	Date;
+    tf02_appv_by: string;
     tf02_remarks: string;
 
     ac01_appv_flag:	string;
     ac01_appv_date: Date;
+    ac01_appv_by: string;
     ac01_remarks: string;
 
     ac02_appv_flag:	string;
     ac02_appv_date: Date;
-    ac02_remaks: string;
+    ac02_appv_by: string;
+    ac02_remarks: string;
 
     email_sent_status: string;
     email_sent_date: Date;

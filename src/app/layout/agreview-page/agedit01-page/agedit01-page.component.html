@@ -5,8 +5,8 @@
     </button>
 </div>
 <div style="overflow: auto; height: 450px;">
-    <!-- <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off"> -->
-    <form #form="ngForm" autocomplete="off">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <!-- <form #form="ngForm" autocomplete="off"> -->
 
         <div class="m-3 input-group">
             <div class="input-group-prepend">
@@ -16,7 +16,7 @@
                 [(ngModel)]="service.formData.hyrf_id">
         </div>
 
-        <div class="m-3 input-group">
+        <!-- <div class="m-3 input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Project ID</span>
             </div>
@@ -38,25 +38,47 @@
             </div>
             <input readonly="readonly" type="text" class="form-control" name="contractnumber" #contractnumber="ngModel"
                 [(ngModel)]="service.formData.contractnumber">
+        </div> -->
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Modify By</span>
+            </div>
+            <input readonly="readonly" type="text" class="form-control" name="tf01_appv_by" #tf01_appv_by="ngModel"
+                [(ngModel)]="service.formData.tf01_appv_by">
         </div>
 
         <div class="m-3 input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Remarks</span>
-                </div>
-                <input type="text" class="form-control" name="tf01_remarks" #tf01_remarks="ngModel"
-                  [(ngModel)]="service.formData.tf01_remarks">
-              </div>
+            <div class="input-group-prepend">
+                <span class="input-group-text">Status</span>
+            </div>
+            <!-- <input type="text" class="form-control" name="tf01_appv_flag" #tf01_appv_flag="ngModel"
+                [(ngModel)]="service.formData.tf01_appv_flag"> -->
+            <mat-radio-group aria-label="Select an option" class="form-control" name="tf01_appv_flag"
+                #tf01_appv_flag="ngModel" [(ngModel)]="service.formData.tf01_appv_flag">
+                <mat-radio-button value="R">Reject</mat-radio-button>
+                <mat-radio-button value="A">Approve</mat-radio-button>
+            </mat-radio-group>
+        </div>
 
-        <!-- <div class="text-left text-danger" *ngIf="DepartmentName.invalid && DepartmentName.touched">Please Enter Department
-            Name</div> -->
-            <mat-dialog-actions align="end">
 
-        <!-- <button class="m-3" mat-raised-button color="warn" (click)="onNoClick()" mat-dialog-close>Reject</button> -->
-        <!-- <button class="m-3" mat-raised-button color="primary" type="submit" >Approved</button> -->
-        <button class="m-3" mat-raised-button color="primary" type="submit" (click)="onSubmit(form)">Approved</button>
-        <button class="m-3" mat-raised-button color="primary" (click)="onReject(form)">Reset</button>
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Remarks</span>
+            </div>
+            <input type="text" class="form-control" name="tf01_remarks" #tf01_remarks="ngModel"
+                [(ngModel)]="service.formData.tf01_remarks">
+        </div>
 
-            </mat-dialog-actions>
+        <!-- <mat-dialog-actions align="end">
+
+        <button (click)="onReject(form)" class="btn btn-danger" >Reject</button>
+        <label>&nbsp;&nbsp;</label>
+        <button color="primary" type="submit" (click)="onSubmit(form)" class="btn btn-primary" >Approved</button>
+            </mat-dialog-actions> -->
+
+        <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Update
+            Employee</button>
+
     </form>
 </div>

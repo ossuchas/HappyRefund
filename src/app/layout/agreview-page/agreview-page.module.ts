@@ -18,7 +18,8 @@ import {
     MatNativeDateModule,
     MatInputModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRadioModule
 } from '@angular/material';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 
@@ -27,7 +28,7 @@ import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
         MatInputModule, MatTableModule, MatCardModule,
         MatPaginatorModule, MatDialogModule, MatSortModule, MatSnackBarModule,
     MatIconModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule,
-    FormsModule],
+    FormsModule, MatRadioModule],
     declarations: [AgreviewPageComponent, Agedit01PageComponent],
     entryComponents: [Agedit01PageComponent]
 })

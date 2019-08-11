@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatSnackBar } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatRadioButton } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { CrmcontactrefundService } from 'src/app/shared';
 
@@ -26,18 +26,26 @@ export class Agedit01PageComponent implements OnInit {
 
   onReject(form: NgForm) {
     console.log('Reject hyrf_id = ' + form.value.hyrf_id);
-
+    form.value.tf01_appv_flag = 'N';
+    console.log(form.value);
+    this.service.updateRefund(form.value).subscribe(res => {
+      this.snackBar.open('Happy Refund Reject Id: ' + res.hyrf_id + ' updated...!!!' ,
+      '', {
+        duration: 3000
+      });
+    });
+    this.dialogbox.close();
   }
 
   onSubmit(form: NgForm) {
     console.log('Submit hyrf_id = ' + form.value.hyrf_id);
-    // this.service.updateEmployee(form.value).subscribe(res => {
-    //   this.snackBar.open('Employee Name : ' + res.EmployeeName + ' updated...!!!' ,
-    //   '', {
-    //     duration: 3000,
-    //     verticalPosition: 'top'
-    //   });
-    // });
+    console.log(form.value);
+    this.service.updateRefund(form.value).subscribe(res => {
+      this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']' ,
+      '', {
+        duration: 3000
+      });
+    });
   }
 
 }
