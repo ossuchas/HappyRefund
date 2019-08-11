@@ -14,20 +14,50 @@
                         <button mat-icon-button (click)="onEdit(row)">
                             <mat-icon>border_color</mat-icon>
                         </button>
-                        <button mat-icon-button color="warn" (click)="onDelete(row.DepartmentID)">
+                        <button mat-icon-button color="warn" (click)="onDelete(row.hyrf_id)">
                             <mat-icon>delete_outline</mat-icon>
                         </button>
                     </mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="DepartmentID">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>DepartmentID</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.DepartmentID }}</mat-cell>
+                <!-- <ng-container matColumnDef="hyrf_id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.hyrf_id}}</mat-cell>
+                </ng-container> -->
+
+                <!-- <ng-container matColumnDef="productid">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Project ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.productid}}</mat-cell>
+                </ng-container> -->
+
+                <ng-container matColumnDef="project">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.productid }}:{{ element.project}}</mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="DepartmentName">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>DepartmentName</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.DepartmentName }}</mat-cell>
+                <ng-container matColumnDef="unitnumber">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.unitnumber}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="transferdateapprove">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>TransferDate</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="contactid">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>ContactID</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.contactid}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fullname">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.fullname}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="remainingtotalamount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number }}</mat-cell>
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

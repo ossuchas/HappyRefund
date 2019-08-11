@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { TestService } from 'src/app/shared/services';
+import { TestService, CrmcontactrefundService } from 'src/app/shared/services';
+
 
 import {MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator} from '@angular/material';
-import { Department } from 'src/app/shared';
+import { Department, CrmContactRefund } from 'src/app/shared';
 
 
   @Component({
@@ -15,7 +16,7 @@ import { Department } from 'src/app/shared';
 export class AgreviewPageComponent implements OnInit {
 
     constructor(
-    private service: TestService,
+    private service: CrmcontactrefundService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
     ) {
@@ -27,7 +28,8 @@ export class AgreviewPageComponent implements OnInit {
 
 
     listData: MatTableDataSource<any>;
-    displayedColumn: string[] = ['Options', 'DepartmentID', 'DepartmentName'];
+    // displayedColumn: string[] = ['Options', 'DepartmentID', 'DepartmentName'];
+    displayedColumn: string[] = ['Options', 'project', 'unitnumber', 'transferdateapprove', 'contactid', 'fullname', 'remainingtotalamount'];
 
     @ViewChild(MatSort, null) sort: MatSort;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -37,7 +39,7 @@ export class AgreviewPageComponent implements OnInit {
     }
 
   refreshDepList() {
-    this.service.getDepList().subscribe(data => {
+    this.service.getRefundList().subscribe(data => {
       this.listData = new MatTableDataSource(data);
       this.listData.paginator = this.paginator;
       this.listData.sort = this.sort;
@@ -49,9 +51,9 @@ export class AgreviewPageComponent implements OnInit {
     this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
 
-  onEdit(dep: Department) {
-    console.log(dep);
-    this.service.formData = dep;
+  onEdit(hyrf: CrmContactRefund) {
+    console.log(hyrf);
+    this.service.formData = hyrf;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -62,16 +64,16 @@ export class AgreviewPageComponent implements OnInit {
 
   onDelete(id: number) {
     console.log(id);
-    if (confirm('Are you sure to delete?')) {
-      this.service.deleteDepartment(id).subscribe( res => {
-        this.refreshDepList();
-        this.snackBar.open(res['message'].toString(), '', {
-          duration: 5000,
-          verticalPosition: 'top'
-        });
+    // if (confirm('Are you sure to delete?')) {
+    //   this.service.deleteDepartment(id).subscribe( res => {
+    //     this.refreshDepList();
+    //     this.snackBar.open(res['message'].toString(), '', {
+    //       duration: 5000,
+    //       verticalPosition: 'top'
+    //     });
 
-      });
-    }
+    //   });
+    // }
   }
 
   onAdd() {

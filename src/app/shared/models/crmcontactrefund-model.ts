@@ -1,0 +1,31 @@
+export class CrmContactRefund {
+    hyrf_id: number;
+    productid: string;
+    project: string;
+    unitnumber: string;
+    wbsnumber: string;
+    contractnumber: string;
+    transferdateapprove: Date;
+    remainingtotalamount: number;
+    contactid: string;
+    header: boolean;
+    personcardid: string;
+    namestitle: string;
+    firstname: string;
+    lastname: string;
+    fullname: string;
+    nationality: string;
+    mobile: string;
+    email: string;
+    tf01_appv_flag:	string;
+    tf01_appv_date:	Date;
+    tf02_appv_flag:	string;
+    tf02_appv_date:	Date;
+    ac01_appv_flag:	string;
+    ac02_appv_flag:	Date;
+    tran_status: string;
+    createby: string;
+    createdate: Date;
+    modifyby: string;
+    modifydate: Date;
+}
