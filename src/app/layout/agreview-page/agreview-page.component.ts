@@ -4,7 +4,8 @@ import { CrmcontactrefundService } from 'src/app/shared/services';
 
 
 import {MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator} from '@angular/material';
-import { Department, CrmContactRefund } from 'src/app/shared';
+import { CrmContactRefund } from 'src/app/shared';
+import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 
 
   @Component({
@@ -57,8 +58,10 @@ export class AgreviewPageComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '70%';
-    // this.dialog.open(EditDepComponent, dialogConfig);
+    dialogConfig.width = '55%';
+    // dialogConfig.width = '500px';
+    // dialogConfig.height = '800px';
+    this.dialog.open(Agedit01PageComponent, dialogConfig);
 
   }
 

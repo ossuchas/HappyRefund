@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-between m-3">
+    <h4>Happy Refund Info.</h4>
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div style="overflow: auto; height: 450px;">
+    <!-- <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off"> -->
+    <form #form="ngForm" autocomplete="off">
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Refund ID</span>
+            </div>
+            <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
+                [(ngModel)]="service.formData.hyrf_id">
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Project ID</span>
+            </div>
+            <input readonly="readonly" type="text" class="form-control" name="productid" #productid="ngModel"
+                [(ngModel)]="service.formData.productid">
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Unit</span>
+            </div>
+            <input readonly="readonly" type="text" class="form-control" name="unitnumber" #unitnumber="ngModel"
+                [(ngModel)]="service.formData.unitnumber">
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Contract No.</span>
+            </div>
+            <input readonly="readonly" type="text" class="form-control" name="contractnumber" #contractnumber="ngModel"
+                [(ngModel)]="service.formData.contractnumber">
+        </div>
+
+        <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Remarks</span>
+                </div>
+                <input type="text" class="form-control" name="tf01_remarks" #tf01_remarks="ngModel"
+                  [(ngModel)]="service.formData.tf01_remarks">
+              </div>
+
+        <!-- <div class="text-left text-danger" *ngIf="DepartmentName.invalid && DepartmentName.touched">Please Enter Department
+            Name</div> -->
+            <mat-dialog-actions align="end">
+
+        <!-- <button class="m-3" mat-raised-button color="warn" (click)="onNoClick()" mat-dialog-close>Reject</button> -->
+        <!-- <button class="m-3" mat-raised-button color="primary" type="submit" >Approved</button> -->
+        <button class="m-3" mat-raised-button color="primary" type="submit" (click)="onSubmit(form)">Approved</button>
+        <button class="m-3" mat-raised-button color="primary" (click)="onReject(form)">Reset</button>
+
+            </mat-dialog-actions>
+    </form>
+</div>
