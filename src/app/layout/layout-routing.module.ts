@@ -16,7 +16,10 @@ const routes: Routes = [
             { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
-            { path: 'agreview-page', loadChildren: () => import('./agreview-page/agreview-page.module').then(m => m.AgreviewPageModule) }
+            { path: 'agreview-page', loadChildren: () => import('./agreview-page/agreview-page.module').then(m => m.AgreviewPageModule) },
+            { path: 'tf02view-page', loadChildren: () => import('./tf02view-page/tf02view-page.module').then(m => m.Tf02viewPageModule) },
+            { path: 'ac01view-page', loadChildren: () => import('./ac01view-page/ac01view-page.module').then(m => m.Ac01viewPageModule) },
+            { path: 'ac02view-page', loadChildren: () => import('./ac02view-page/ac02view-page.module').then(m => m.Ac02viewPageModule) }
         ]
     }
 ];
