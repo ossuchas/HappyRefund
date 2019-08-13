@@ -21,9 +21,10 @@ import {
     MatPaginatorModule,
     MatRadioModule
 } from '@angular/material';
+import { Tf02edit01PageComponent } from './tf02edit01-page/tf02edit01-page.component';
 
 @NgModule({
-  declarations: [Tf02viewPageComponent],
+  declarations: [Tf02viewPageComponent, Tf02edit01PageComponent],
   imports: [
     CommonModule,
     Tf02viewPageRoutingModule,
@@ -41,6 +42,8 @@ import {
     MatRadioModule,
     PageHeaderModule,
     FormsModule
-  ]
+  ],
+    entryComponents: [Tf02edit01PageComponent]
+
 })
 export class Tf02viewPageModule { }

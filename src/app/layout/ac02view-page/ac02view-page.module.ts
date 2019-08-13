@@ -21,9 +21,10 @@ import {
     MatPaginatorModule,
     MatRadioModule
 } from '@angular/material';
+import { Ac02edit01PageComponent } from './ac02edit01-page/ac02edit01-page.component';
 
 @NgModule({
-  declarations: [Ac02viewPageComponent],
+  declarations: [Ac02viewPageComponent, Ac02edit01PageComponent],
   imports: [
     CommonModule,
     Ac02viewPageRoutingModule,
@@ -41,6 +42,7 @@ import {
     MatCardModule,
     MatPaginatorModule,
     MatRadioModule
-  ]
+  ],
+    entryComponents: [Ac02edit01PageComponent]
 })
 export class Ac02viewPageModule { }

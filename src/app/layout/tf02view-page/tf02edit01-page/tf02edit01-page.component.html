@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between m-3">
-    <h4>Document Review (TF)</h4>
+    <h4>Confirm Document (TF)</h4>
     <button mat-button (click)="onClose()">
         <mat-icon>close</mat-icon>
     </button>
@@ -29,8 +29,6 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Status</span>
             </div>
-            <!-- <input type="text" class="form-control" name="tf01_appv_flag" #tf01_appv_flag="ngModel"
-                [(ngModel)]="service.formData.tf01_appv_flag"> -->
             <mat-radio-group aria-label="Select an option" class="form-control" name="tf01_appv_flag"
                 #tf01_appv_flag="ngModel" [(ngModel)]="service.formData.tf01_appv_flag">
                 <mat-radio-button value="R">Reject</mat-radio-button>
@@ -61,3 +59,4 @@
 </div>
 
 </div>
+

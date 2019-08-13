@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between m-3">
-    <h4>Document Review (TF)</h4>
+    <h4>Final Confirm Document (AC)</h4>
     <button mat-button (click)="onClose()">
         <mat-icon>close</mat-icon>
     </button>
@@ -29,15 +29,12 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Status</span>
             </div>
-            <!-- <input type="text" class="form-control" name="tf01_appv_flag" #tf01_appv_flag="ngModel"
-                [(ngModel)]="service.formData.tf01_appv_flag"> -->
             <mat-radio-group aria-label="Select an option" class="form-control" name="tf01_appv_flag"
                 #tf01_appv_flag="ngModel" [(ngModel)]="service.formData.tf01_appv_flag">
                 <mat-radio-button value="R">Reject</mat-radio-button>
                 <mat-radio-button value="A">Approve</mat-radio-button>
             </mat-radio-group>
         </div>
-
 
         <div class="m-3 input-group">
             <div class="input-group-prepend">
@@ -47,13 +44,6 @@
                 [(ngModel)]="service.formData.tf01_remarks">
         </div>
 
-        <!-- <mat-dialog-actions align="end">
-
-        <button (click)="onReject(form)" class="btn btn-danger" >Reject</button>
-        <label>&nbsp;&nbsp;</label>
-        <button color="primary" type="submit" (click)="onSubmit(form)" class="btn btn-primary" >Approved</button>
-            </mat-dialog-actions> -->
-
         <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Update
             Employee</button>
 
@@ -61,3 +51,4 @@
 </div>
 
 </div>
+

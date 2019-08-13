@@ -1,6 +1,66 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Confirm Document Review by Transfer Team'" [icon]="'fa-edit'">
+    <app-page-header [heading]="'Document Review by Accouting'" [icon]="'fa-edit'">
     </app-page-header>
-<p>
-  ac01view-page works!
-</p>
+    <div class="container">
+        <div class="mat-elevation-z8">
+            <div class="card-header">ข้อมูลแสดงรายการลูกค้า (รอตรวจเอกสารทางบัญชี)</div>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
+        <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+            <mat-table [dataSource]="listData" matSort>
+                <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
+                <mat-row *matRowDef="let row; columns:displayedColumn;"></mat-row>
+                <ng-container matColumnDef="Options">
+                    <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <button mat-icon-button (click)="onEdit(row)">
+                            <mat-icon>zoom_in</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onView(row.hyrf_id)">
+                            <mat-icon>image_search</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="project">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.productid }}:{{ element.project}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="unitnumber">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.unitnumber}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="transferdateapprove">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>TransferDate</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="contactid">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>ContactID</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.contactid}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fullname">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.fullname}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="remainingtotalamount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="tf01_appv_flag">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag }}</mat-cell>
+                </ng-container>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+
+</div>
+
