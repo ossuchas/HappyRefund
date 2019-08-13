@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -24,11 +23,24 @@ import {
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 
 @NgModule({
-    imports: [CommonModule, AgreviewPageRoutingModule, PageHeaderModule,
-        MatInputModule, MatTableModule, MatCardModule,
-        MatPaginatorModule, MatDialogModule, MatSortModule, MatSnackBarModule,
-    MatIconModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule,
-    FormsModule, MatRadioModule],
+    imports: [
+        CommonModule,
+        AgreviewPageRoutingModule,
+        PageHeaderModule,
+        MatInputModule,
+        MatTableModule,
+        MatCardModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatSortModule,
+        MatSnackBarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FormsModule,
+        MatRadioModule
+    ],
     declarations: [AgreviewPageComponent, Agedit01PageComponent],
     entryComponents: [Agedit01PageComponent]
 })

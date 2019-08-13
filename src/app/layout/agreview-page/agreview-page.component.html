@@ -1,14 +1,13 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Document Review'" [icon]="'fa-edit'">
+    <app-page-header [heading]="'Document Review by Transfer'" [icon]="'fa-edit'">
     </app-page-header>
-    <br>
     <div class="container">
         <div class="mat-elevation-z8">
-            <div class="card-header">ข้อมูลแสดงรายการลูกค้า</div>
+            <div class="card-header">ข้อมูลแสดงรายการลูกค้า (รอตรวจเอกสาร)</div>
             <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
-        <mat-form-field>
+            <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
+            </mat-form-field>
             <mat-table [dataSource]="listData" matSort>
                 <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
                 <mat-row *matRowDef="let row; columns:displayedColumn;"></mat-row>
@@ -23,16 +22,6 @@
                         </button>
                     </mat-cell>
                 </ng-container>
-
-                <!-- <ng-container matColumnDef="hyrf_id">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund ID</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.hyrf_id}}</mat-cell>
-                </ng-container> -->
-
-                <!-- <ng-container matColumnDef="productid">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Project ID</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.productid}}</mat-cell>
-                </ng-container> -->
 
                 <ng-container matColumnDef="project">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
