@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Tf01docstatusPipe } from './tf01docstatus.pipe';
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: []
+    declarations: [Tf01docstatusPipe]
 })
-export class SharedPipesModule { }
+export class SharedPipesModule {
+}
