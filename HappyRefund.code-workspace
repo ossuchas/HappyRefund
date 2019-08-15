@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"tslint.alwaysShowRuleFailuresAsWarnings": true
+	}
+}
