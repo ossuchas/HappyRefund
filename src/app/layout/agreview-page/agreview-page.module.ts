@@ -21,7 +21,6 @@ import {
     MatRadioModule
 } from '@angular/material';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
-import { Tf01docstatusPipe } from 'src/app/shared/pipes/tf01docstatus.pipe';
 
 @NgModule({
     imports: [
@@ -42,7 +41,7 @@ import { Tf01docstatusPipe } from 'src/app/shared/pipes/tf01docstatus.pipe';
         FormsModule,
         MatRadioModule
     ],
-    declarations: [AgreviewPageComponent, Agedit01PageComponent, Tf01docstatusPipe],
+    declarations: [AgreviewPageComponent, Agedit01PageComponent],
     entryComponents: [Agedit01PageComponent]
 })
 export class AgreviewPageModule {}
