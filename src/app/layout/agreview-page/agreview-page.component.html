@@ -55,8 +55,8 @@
 
                 <ng-container matColumnDef="tf01_appv_flag">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-                    <!-- <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag | tf01docstatus }}</mat-cell> -->
-                    <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag }}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag | tf01docstatus }}</mat-cell>
+                    <!-- <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag }}</mat-cell> -->
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>

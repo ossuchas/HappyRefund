@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AgreviewPageRoutingModule } from './agreview-page-routing.module';
 import { AgreviewPageComponent } from './agreview-page.component';
-import { PageHeaderModule} from 'src/app/shared';
+import { PageHeaderModule, Tf01docstatusPipe} from 'src/app/shared';
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -41,7 +41,7 @@ import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
         FormsModule,
         MatRadioModule
     ],
-    declarations: [AgreviewPageComponent, Agedit01PageComponent],
+    declarations: [AgreviewPageComponent, Agedit01PageComponent, Tf01docstatusPipe],
     entryComponents: [Agedit01PageComponent]
 })
 export class AgreviewPageModule {}
