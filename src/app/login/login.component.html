@@ -2,19 +2,28 @@
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img src="assets/images/aplogo.png" width="150px" />
-            <h1>Happy Refund 111</h1>
-            <!-- <h5>by AP Thai</h5> -->
-            <form role="form">
+            <h1>Happy Refund</h1>
+            <form role="form" >
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="{{ 'Username' | translate }}">
+                        <input matInput placeholder="Username" [(ngModel)]="username" name="username" required
+                            class="form-control input-underline input-lg">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}">
+                        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password"
+                            required class="form-control input-underline input-lg">
                     </div>
+                    <!-- <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div> -->
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+                <!-- <div class="progress-loader fa-align-center" [hidden]="!loading">
+                    <mat-spinner></mat-spinner>
+                </div> -->
+                <div class="loading-indicator">
+                    <mat-spinner [diameter]="60" *ngIf="loading"></mat-spinner>
+                </div>
+                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">
+                    {{ 'Log in' | translate }}</a>
             </form>
         </div>
     </div>
