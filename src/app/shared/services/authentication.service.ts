@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError, Subject } from 'rxjs';
+import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { User } from '../models';
 import { map } from 'rxjs/operators';
@@ -9,8 +9,17 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class AuthenticationService {
+    private currentUserSubject: BehaviorSubject<User>;
+    public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUser = this.currentUserSubject.asObservable();
+    }
+
+    public get currentUserValue(): User {
+        return this.currentUserSubject.value;
+    }
 
     formData: User;
 
@@ -30,16 +39,24 @@ export class AuthenticationService {
 
     // POST
     login(_username: string, _password: string) {
-        return this.http.post<User>(this.APIUrl + '/login', { username: _username, password: _password }, this.httpOptions)
-            .pipe(map(user => {
+        return this.http.post<User>(this.APIUrl + '/login', { username: _username, password: _password }, this.httpOptions).pipe(
+            map(user => {
                 // if (user && user.token) {
                 //     // store user details and jwt token in local storage to keep user logged in between page refreshes
                 //     localStorage.setItem('currentUser', JSON.stringify(user));
                 // }
                 localStorage.setItem('currentUser', JSON.stringify(user));
-
+                this.currentUserSubject.next(user);
                 return user;
-            }));
+            })
+        );
+    }
+
+    logout() {
+        // remove user from local storage and set current user to null
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('isLoggedin');
+        this.currentUserSubject.next(null);
     }
 
     // Error handling

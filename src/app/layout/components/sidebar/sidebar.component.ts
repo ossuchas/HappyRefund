@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { User, AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-sidebar',
@@ -8,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+    currentUser: User;
     isActive: boolean;
     collapsed: boolean;
     showMenu: string;
@@ -15,17 +17,19 @@ export class SidebarComponent implements OnInit {
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(private translate: TranslateService, public router: Router) {
-        this.router.events.subscribe(val => {
-            if (
-                val instanceof NavigationEnd &&
-                window.innerWidth <= 992 &&
-                this.isToggled()
-            ) {
-                this.toggleSidebar();
-            }
-        });
-    }
+    constructor(
+        private translate: TranslateService,
+        public router: Router,
+        private authService: AuthenticationService
+        ) {
+            this.router.events.subscribe(val => {
+                if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
+                    this.toggleSidebar();
+                }
+            });
+
+            this.currentUser = this.authService.currentUserValue;
+        }
 
     ngOnInit() {
         this.isActive = false;
@@ -33,7 +37,6 @@ export class SidebarComponent implements OnInit {
         this.showMenu = '';
         this.pushRightClass = 'push-right';
     }
-
 
     eventCalled() {
         this.isActive = !this.isActive;
@@ -72,6 +75,7 @@ export class SidebarComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        // localStorage.removeItem('isLoggedin');
+        this.authService.logout();
     }
 }

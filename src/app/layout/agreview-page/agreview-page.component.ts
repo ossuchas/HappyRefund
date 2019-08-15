@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { CrmcontactrefundService } from 'src/app/shared/services';
+import { CrmcontactrefundService} from 'src/app/shared/services';
 
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator } from '@angular/material';
-import { CrmContactRefund, SharedPipesModule } from 'src/app/shared';
+import { CrmContactRefund} from 'src/app/shared';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
+
 
 @Component({
     selector: 'app-agreview-page',
@@ -70,6 +71,5 @@ export class AgreviewPageComponent implements OnInit {
         this.snackBar.open('View ' + id, '', {
             duration: 3000
         });
-        // window.open('google.com', '_blank');
     }
 }
