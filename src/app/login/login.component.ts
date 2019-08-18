@@ -3,8 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { AuthenticationService } from '../shared';
 import { first } from 'rxjs/operators';
-import { MatSnackBar, MatSpinner } from '@angular/material';
-import { $ } from 'protractor';
+import { MatSnackBar} from '@angular/material';
 
 @Component({
     selector: 'app-login',

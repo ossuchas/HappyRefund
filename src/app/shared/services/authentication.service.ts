@@ -4,6 +4,7 @@ import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { User } from '../models';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +25,7 @@ export class AuthenticationService {
     formData: User;
 
     // Base url
-    readonly APIUrl = 'http://192.168.0.42:5000/api/v1';
+    readonly APIUrl = environment.apiUrl;
 
     // Http Headers
     httpOptions = {
