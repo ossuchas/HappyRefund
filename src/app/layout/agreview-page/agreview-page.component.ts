@@ -5,7 +5,6 @@ import { CrmcontactrefundService } from 'src/app/shared/services';
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator } from '@angular/material';
 import { CrmContactRefund } from 'src/app/shared';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
-import { environment, APIENDPOINT_URL } from 'src/environments/environment';
 
 @Component({
     selector: 'app-agreview-page',
@@ -41,11 +40,6 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     refreshDataList() {
-        // KAI
-        console.log('agrview : ' + environment.production);
-        console.log('agview : ' + environment.apiUrl);
-        console.log('agview : ' + environment.message);
-        console.log('agview : ' + APIENDPOINT_URL);
         this.service.getCSSentList().subscribe(data => {
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;

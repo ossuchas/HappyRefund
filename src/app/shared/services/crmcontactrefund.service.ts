@@ -33,12 +33,8 @@ export class CrmcontactrefundService {
     // For TF02
     // Get All Customer Sent Document List
     getCSSentList(): Observable<CrmContactRefund[]> {
-        console.log('service :'  + environment.production);
-        console.log('service :' + environment.apiUrl);
-        console.log('service :' + environment.message);
-        console.log('service :' + APIENDPOINT_URL);
-        // return this.http.get<CrmContactRefund[]>(this.APIUrl + '/cssentlist');
-        return this.http.get<CrmContactRefund[]>(APIENDPOINT_URL + '/cssentlist');
+        return this.http.get<CrmContactRefund[]>(this.APIUrl + '/cssentlist');
+        // return this.http.get<CrmContactRefund[]>(APIENDPOINT_URL + '/cssentlist');
     }
 
     // Get All Status List
