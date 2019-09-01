@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
         // localStorage.setItem('isLoggedin', 'true');
         // $('.loader').show();
 
-        console.log(this.username);
-        console.log(this.password);
+        // console.log(this.username);
+        // console.log(this.password);
 
         this.loading = true;
         this.service
