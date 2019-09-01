@@ -25,7 +25,7 @@ export class Ac02edit01PageComponent implements OnInit {
     onSubmit(form: NgForm) {
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
         console.log(form.value);
-        this.service.updateRefund(form.value).subscribe(res => {
+        this.service.updateAC02Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
                 duration: 3000
             });

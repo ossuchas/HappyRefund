@@ -45,7 +45,7 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     refreshDataList() {
-        this.service.getRefundList().subscribe(data => {
+        this.service.getCSSentList().subscribe(data => {
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;
             this.listData.sort = this.sort;

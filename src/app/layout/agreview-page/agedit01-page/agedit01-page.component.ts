@@ -38,7 +38,12 @@ export class Agedit01PageComponent implements OnInit {
     onSubmit(form: NgForm) {
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
         console.log(form.value);
-        this.service.updateRefund(form.value).subscribe(res => {
+        // this.service.updateRefund(form.value).subscribe(res => {
+        //     this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
+        //         duration: 3000
+        //     });
+        // });
+        this.service.updateTF01Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
                 duration: 3000
             });

@@ -39,7 +39,7 @@ export class Ac02viewPageComponent implements OnInit {
     }
 
     refreshDataList() {
-        this.service.getRefundList().subscribe(data => {
+        this.service.getAC01AllList().subscribe(data => {
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;
             this.listData.sort = this.sort;
