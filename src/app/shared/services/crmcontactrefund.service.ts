@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError, Subject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { CrmContactRefund } from '../models';
-import { environment } from 'src/environments/environment';
+import { environment, APIENDPOINT_URL } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -30,10 +30,15 @@ export class CrmcontactrefundService {
         return this.http.get<CrmContactRefund[]>(this.APIUrl + '/refundlist');
     }
 
-    // For TF01
+    // For TF02
     // Get All Customer Sent Document List
     getCSSentList(): Observable<CrmContactRefund[]> {
-        return this.http.get<CrmContactRefund[]>(this.APIUrl + '/cssentlist');
+        console.log('service :'  + environment.production);
+        console.log('service :' + environment.apiUrl);
+        console.log('service :' + environment.message);
+        console.log('service :' + APIENDPOINT_URL);
+        // return this.http.get<CrmContactRefund[]>(this.APIUrl + '/cssentlist');
+        return this.http.get<CrmContactRefund[]>(APIENDPOINT_URL + '/cssentlist');
     }
 
     // Get All Status List

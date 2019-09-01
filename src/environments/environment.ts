@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1'
+  message: 'hello dev',
+  apiUrl: 'http://192.168.0.42:5000/api/v1'
 };
+
+export const APIENDPOINT_URL = 'http://192.168.0.42:5000/api/v1';
 
 /*
  * For easier debugging in development mode, you can import the following file
