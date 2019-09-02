@@ -6,6 +6,7 @@ export class CrmContactRefund {
     addressnumber: string;
     wbsnumber: string;
     contractnumber: string;
+    transfernumber: string;
     transferdateapprove: Date;
     remainingtotalamount: number;
     contactid: string;

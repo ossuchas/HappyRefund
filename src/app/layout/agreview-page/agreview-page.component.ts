@@ -63,6 +63,11 @@ export class AgreviewPageComponent implements OnInit {
 
     onView(id: number) {
         console.log(id);
+        // const img_url = 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1/image/01.jpg';
+        const img_url =
+            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_2&PFName=PF_TR_009_2.rpt&ParaName=@TransferNumber&ParaValue=40046CT9198371&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
+        // window.open('http://www.google.com', '_blank');
+        window.open(img_url, '_blank');
         this.snackBar.open('View ' + id, '', {
             duration: 3000
         });
