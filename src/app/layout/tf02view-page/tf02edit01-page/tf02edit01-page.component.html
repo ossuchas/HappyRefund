@@ -21,16 +21,16 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Modify By</span>
             </div>
-            <input readonly="readonly" type="text" class="form-control" name="tf01_appv_by" #tf01_appv_by="ngModel"
-                [(ngModel)]="service.formData.tf01_appv_by">
+            <input readonly="readonly" type="text" class="form-control" name="tf02_appv_by" #tf02_appv_by="ngModel"
+                [(ngModel)]="service.formData.tf02_appv_by">
         </div>
 
         <div class="m-3 input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Status</span>
             </div>
-            <mat-radio-group aria-label="Select an option" class="form-control" name="tf01_appv_flag"
-                #tf01_appv_flag="ngModel" [(ngModel)]="service.formData.tf01_appv_flag">
+            <mat-radio-group aria-label="Select an option" class="form-control" name="tf02_appv_flag"
+                #tf02_appv_flag="ngModel" [(ngModel)]="service.formData.tf02_appv_flag">
                 <mat-radio-button value="R">Reject</mat-radio-button>
                 <mat-radio-button value="A">Approve</mat-radio-button>
             </mat-radio-group>
@@ -41,8 +41,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Remarks</span>
             </div>
-            <input type="text" class="form-control" name="tf01_remarks" #tf01_remarks="ngModel"
-                [(ngModel)]="service.formData.tf01_remarks">
+            <input type="text" class="form-control" name="tf02_remarks" #tf02_remarks="ngModel"
+                [(ngModel)]="service.formData.tf02_remarks">
         </div>
 
         <!-- <mat-dialog-actions align="end">
