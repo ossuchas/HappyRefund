@@ -21,6 +21,7 @@ import {
     MatRadioModule
 } from '@angular/material';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
+import { AgimgviewPageComponent } from './agimgview-page/agimgview-page.component';
 
 @NgModule({
     imports: [
@@ -41,7 +42,7 @@ import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
         FormsModule,
         MatRadioModule
     ],
-    declarations: [AgreviewPageComponent, Agedit01PageComponent, Tf01docstatusPipe],
-    entryComponents: [Agedit01PageComponent]
+    declarations: [AgreviewPageComponent, Agedit01PageComponent, Tf01docstatusPipe, AgimgviewPageComponent],
+    entryComponents: [Agedit01PageComponent, AgimgviewPageComponent]
 })
 export class AgreviewPageModule {}

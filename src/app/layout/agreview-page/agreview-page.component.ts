@@ -6,6 +6,7 @@ import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, M
 import { CrmContactRefund } from 'src/app/shared';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 import { environment } from 'src/environments/environment';
+import { AgimgviewPageComponent } from './agimgview-page/agimgview-page.component';
 
 @Component({
     selector: 'app-agreview-page',
@@ -63,13 +64,16 @@ export class AgreviewPageComponent implements OnInit {
         this.dialog.open(Agedit01PageComponent, dialogConfig);
     }
 
-    onView(transfernumber: string) {
-        console.log(transfernumber);
-        const img_url = 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1/image/01.jpg';
-        window.open(img_url, '_blank');
-        this.snackBar.open('View ' + transfernumber, '', {
-            duration: 3000
-        });
+    onView(hyrf: CrmContactRefund) {
+        // const img_url = 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1/image/01.jpg';
+        // window.open(img_url, '_blank');
+        console.log(hyrf);
+        this.service.formData = hyrf;
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '55%';
+        this.dialog.open(AgimgviewPageComponent, dialogConfig);
     }
 
     onViewMemo(transfernumber: string) {
