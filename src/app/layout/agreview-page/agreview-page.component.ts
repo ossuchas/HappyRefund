@@ -68,6 +68,7 @@ export class AgreviewPageComponent implements OnInit {
         // const img_url = 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1/image/01.jpg';
         // window.open(img_url, '_blank');
         console.log(hyrf);
+        console.log('kai onView');
         this.service.formData = hyrf;
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
