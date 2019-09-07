@@ -26,8 +26,8 @@ export class CrmContactRefundListImgUrlService {
 
     private _listeners = new Subject<any>();
 
-    getImgList(data): Observable<CrmContactRefundListImgUrl[]> {
-        return this.http.get<CrmContactRefundListImgUrl[]>(this.APIUrl + '/imageurls/' + data.img_ref_contact_refund);
+    getImgList(data: number): Observable<CrmContactRefundListImgUrl[]> {
+        return this.http.get<CrmContactRefundListImgUrl[]>(this.APIUrl + '/imageurls/' + data);
     }
 
     // Error handling
