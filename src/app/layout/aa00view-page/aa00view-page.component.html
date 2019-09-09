@@ -3,26 +3,14 @@
     </app-page-header>
     <div class="container">
         <div class="mat-elevation-z8">
-            <div class="card-header">ข้อมูลแสดงรายการลูกค้า (รอตรวจเอกสารทางบัญชี)</div>
+            <div class="card-header">ข้อมูลแสดงรายการ อนุมัติ 4 เรียบร้อยแล้ว</div>
             <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
-        <mat-form-field>
+            <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
+            </mat-form-field>
             <mat-table [dataSource]="listData" matSort>
                 <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
                 <mat-row *matRowDef="let row; columns:displayedColumn;"></mat-row>
-                <ng-container matColumnDef="Options">
-                    <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
-                        <button mat-icon-button (click)="onEdit(row)">
-                            <mat-icon>zoom_in</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="onView(row)">
-                            <mat-icon>image_search</mat-icon>
-                        </button>
-                    </mat-cell>
-                </ng-container>
-
                 <ng-container matColumnDef="project">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.productid }}:{{ element.project}}</mat-cell>
@@ -31,6 +19,11 @@
                 <ng-container matColumnDef="unitnumber">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.unitnumber}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="contractnumber">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>contractnumber</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.contractnumber}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="transferdateapprove">
@@ -52,23 +45,9 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
                 </ng-container>
-
-                <ng-container matColumnDef="tf01_appv_flag">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.ac01_appv_flag | ac01docstatus }}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="Memo">
-                    <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
-                        <button mat-icon-button (click)="onViewMemo(row.transfernumber)">
-                            <mat-icon>message</mat-icon>
-                        </button>
-                    </mat-cell>
-                </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>
         </div>
     </div>
 
 </div>
-

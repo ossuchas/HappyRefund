@@ -4,6 +4,10 @@
             <i class="fa fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
+        <a routerLink="/aa00view-page" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-inbox"></i>&nbsp;
+            <span>{{ 'รายการที่อนุมัติ 4' | translate }}</span>
+        </a>
 
         <a [routerLink]="['/agreview-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-search"></i>&nbsp;

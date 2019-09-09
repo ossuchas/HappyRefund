@@ -19,7 +19,8 @@ const routes: Routes = [
             { path: 'agreview-page', loadChildren: () => import('./agreview-page/agreview-page.module').then(m => m.AgreviewPageModule) },
             { path: 'tf02view-page', loadChildren: () => import('./tf02view-page/tf02view-page.module').then(m => m.Tf02viewPageModule) },
             { path: 'ac01view-page', loadChildren: () => import('./ac01view-page/ac01view-page.module').then(m => m.Ac01viewPageModule) },
-            { path: 'ac02view-page', loadChildren: () => import('./ac02view-page/ac02view-page.module').then(m => m.Ac02viewPageModule) }
+            { path: 'ac02view-page', loadChildren: () => import('./ac02view-page/ac02view-page.module').then(m => m.Ac02viewPageModule) },
+            { path: 'aa00view-page', loadChildren: () => import('./aa00view-page/aa00view-page.module').then(m => m.Aa00viewPageModule) }
         ]
     }
 ];
