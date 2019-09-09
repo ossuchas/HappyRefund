@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Ac02viewPageRoutingModule } from './ac02view-page-routing.module';
 import { Ac02viewPageComponent } from './ac02view-page.component';
 
-import { PageHeaderModule } from 'src/app/shared';
+import { PageHeaderModule, Ac02docstatusPipe } from 'src/app/shared';
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -22,9 +22,10 @@ import {
     MatRadioModule
 } from '@angular/material';
 import { Ac02edit01PageComponent } from './ac02edit01-page/ac02edit01-page.component';
+import { Ac02imgviewPageComponent } from './ac02imgview-page/ac02imgview-page.component';
 
 @NgModule({
-  declarations: [Ac02viewPageComponent, Ac02edit01PageComponent],
+  declarations: [Ac02viewPageComponent, Ac02edit01PageComponent, Ac02imgviewPageComponent, Ac02docstatusPipe],
   imports: [
     CommonModule,
     Ac02viewPageRoutingModule,
@@ -43,6 +44,6 @@ import { Ac02edit01PageComponent } from './ac02edit01-page/ac02edit01-page.compo
     MatPaginatorModule,
     MatRadioModule
   ],
-    entryComponents: [Ac02edit01PageComponent]
+    entryComponents: [Ac02edit01PageComponent, Ac02imgviewPageComponent]
 })
 export class Ac02viewPageModule { }

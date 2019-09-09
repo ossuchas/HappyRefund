@@ -5,6 +5,7 @@ import { CrmcontactrefundService } from 'src/app/shared/services';
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator } from '@angular/material';
 import { CrmContactRefund } from 'src/app/shared';
 import { Ac02edit01PageComponent } from './ac02edit01-page/ac02edit01-page.component';
+import { Ac02imgviewPageComponent } from './ac02imgview-page/ac02imgview-page.component';
 
 @Component({
     selector: 'app-ac02view-page',
@@ -28,7 +29,8 @@ export class Ac02viewPageComponent implements OnInit {
         'contactid',
         'fullname',
         'remainingtotalamount',
-        'tf01_appv_flag'
+        'tf01_appv_flag',
+        'Memo'
     ];
 
     @ViewChild(MatSort, null) sort: MatSort;
@@ -60,11 +62,27 @@ export class Ac02viewPageComponent implements OnInit {
         this.dialog.open(Ac02edit01PageComponent, dialogConfig);
     }
 
-    onView(id: number) {
-        console.log(id);
-        this.snackBar.open('View ' + id, '', {
-            duration: 3000
-        });
-        // window.open('google.com', '_blank');
+    onView(hyrf: CrmContactRefund) {
+        console.log(hyrf);
+        this.service.formData = hyrf;
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '55%';
+        dialogConfig.data = {
+            hyrf_id: hyrf.hyrf_id
+        };
+        this.dialog.open(Ac02imgviewPageComponent, dialogConfig);
+    }
+
+    onViewMemo(transfernumber: string) {
+        console.log(transfernumber);
+        const img_url =
+            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_2&PFName=PF_TR_009_2.rpt&ParaName=@TransferNumber&ParaValue=' +
+            transfernumber +
+            '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
+        // window.open('http://www.google.com', '_blank');
+        // const img_url = environment.memoUrl_1 + transfernumber + environment.memoUrl_2;
+        window.open(img_url, '_blank');
     }
 }

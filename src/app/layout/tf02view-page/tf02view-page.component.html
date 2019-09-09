@@ -17,7 +17,7 @@
                         <button mat-icon-button (click)="onEdit(row)">
                             <mat-icon>zoom_in</mat-icon>
                         </button>
-                        <button mat-icon-button (click)="onView(row.hyrf_id)">
+                        <button mat-icon-button (click)="onView(row)">
                             <mat-icon>image_search</mat-icon>
                         </button>
                     </mat-cell>
@@ -55,7 +55,15 @@
 
                 <ng-container matColumnDef="tf01_appv_flag">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.tf01_appv_flag }}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.tf02_appv_flag | tf02docstatus }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="Memo">
+                    <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <button mat-icon-button (click)="onViewMemo(row.transfernumber)">
+                            <mat-icon>message</mat-icon>
+                        </button>
+                    </mat-cell>
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>

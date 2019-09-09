@@ -7,18 +7,17 @@ import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar, MAT_DIALOG
 import { Inject } from '@angular/core';
 
 @Component({
-    selector: 'app-agimgview-page',
-    templateUrl: './agimgview-page.component.html',
-    styleUrls: ['./agimgview-page.component.scss']
+    selector: 'app-ac01imgview-page',
+    templateUrl: './ac01imgview-page.component.html',
+    styleUrls: ['./ac01imgview-page.component.scss']
 })
-export class AgimgviewPageComponent implements OnInit {
+export class Ac01imgviewPageComponent implements OnInit {
     constructor(
-        public dialogbox: MatDialogRef<AgimgviewPageComponent>,
+        public dialogbox: MatDialogRef<Ac01imgviewPageComponent>,
         public service: CrmContactRefundListImgUrlService,
         private snackBar: MatSnackBar,
         @Inject(MAT_DIALOG_DATA) public data: any
     ) {
-
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList(this.data.hyrf_id);

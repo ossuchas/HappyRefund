@@ -7,33 +7,29 @@ import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar, MAT_DIALOG
 import { Inject } from '@angular/core';
 
 @Component({
-    selector: 'app-agimgview-page',
-    templateUrl: './agimgview-page.component.html',
-    styleUrls: ['./agimgview-page.component.scss']
+    selector: 'app-tf02imgview-page',
+    templateUrl: './tf02imgview-page.component.html',
+    styleUrls: ['./tf02imgview-page.component.scss']
 })
-export class AgimgviewPageComponent implements OnInit {
+export class Tf02imgviewPageComponent implements OnInit {
     constructor(
-        public dialogbox: MatDialogRef<AgimgviewPageComponent>,
+        public dialogbox: MatDialogRef<Tf02imgviewPageComponent>,
         public service: CrmContactRefundListImgUrlService,
         private snackBar: MatSnackBar,
         @Inject(MAT_DIALOG_DATA) public data: any
     ) {
-
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList(this.data.hyrf_id);
         });
     }
-
     listData: MatTableDataSource<any>;
     displayedColumn: string[] = ['Options', 'img_seqn', 'img_name'];
     // displayedColumn: string[] = ['Options', 'img_id', 'img_ref_contact_refund', 'img_seqn', 'img_name', 'img_url'];
 
     ngOnInit() {
-        // console.log('kai hyrf_id ' + this.data.hyrf_id);
         this.refreshDataList(this.data.hyrf_id);
     }
-
     onClose() {
         this.dialogbox.close();
         this.service.filter('Update click');
@@ -44,7 +40,6 @@ export class AgimgviewPageComponent implements OnInit {
             this.listData = new MatTableDataSource(data);
         });
     }
-
     onView(data: CrmContactRefundListImgUrl) {
         console.log(data.img_id);
         const img_url = data.img_url;

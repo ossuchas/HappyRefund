@@ -5,6 +5,7 @@ import { CrmcontactrefundService } from 'src/app/shared/services';
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator } from '@angular/material';
 import { CrmContactRefund } from 'src/app/shared';
 import { Tf02edit01PageComponent } from './tf02edit01-page/tf02edit01-page.component';
+import { Tf02imgviewPageComponent } from './tf02imgview-page/tf02imgview-page.component';
 
 @Component({
     selector: 'app-tf02view-page',
@@ -29,7 +30,8 @@ export class Tf02viewPageComponent implements OnInit {
         'contactid',
         'fullname',
         'remainingtotalamount',
-        'tf01_appv_flag'
+        'tf01_appv_flag',
+        'Memo'
     ];
 
     @ViewChild(MatSort, null) sort: MatSort;
@@ -61,11 +63,25 @@ export class Tf02viewPageComponent implements OnInit {
         this.dialog.open(Tf02edit01PageComponent, dialogConfig);
     }
 
-    onView(id: number) {
-        console.log(id);
-        this.snackBar.open('View ' + id, '', {
-            duration: 3000
-        });
-        // window.open('google.com', '_blank');
+    onView(hyrf: CrmContactRefund) {
+        console.log(hyrf);
+        this.service.formData = hyrf;
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '55%';
+        dialogConfig.data = {
+            hyrf_id: hyrf.hyrf_id
+        };
+        this.dialog.open(Tf02imgviewPageComponent, dialogConfig);
+    }
+
+    onViewMemo(transfernumber: string) {
+        console.log(transfernumber);
+        const img_url =
+            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_2&PFName=PF_TR_009_2.rpt&ParaName=@TransferNumber&ParaValue=' +
+            transfernumber +
+            '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
+        window.open(img_url, '_blank');
     }
 }
