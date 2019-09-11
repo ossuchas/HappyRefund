@@ -31,11 +31,6 @@
                     <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="contactid">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>ContactID</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.contactid}}</mat-cell>
-                </ng-container>
-
                 <ng-container matColumnDef="fullname">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.fullname}}</mat-cell>
@@ -44,6 +39,16 @@
                 <ng-container matColumnDef="remainingtotalamount">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="approvedate4">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Appv#4 Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.approvedate4| date:'dd/MM/yyyy'}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="approve4by">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Appv#4 by</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.approve4by}}</mat-cell>
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>

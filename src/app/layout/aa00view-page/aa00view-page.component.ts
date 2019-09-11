@@ -24,9 +24,10 @@ export class Aa00viewPageComponent implements OnInit {
         'unitnumber',
         'contractnumber',
         'transferdateapprove',
-        'contactid',
         'fullname',
         'remainingtotalamount',
+        'approvedate4',
+        'approve4by'
     ];
 
     @ViewChild(MatSort, null) sort: MatSort;
