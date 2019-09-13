@@ -23,6 +23,7 @@ import {
 } from '@angular/material';
 import { Ac02edit01PageComponent } from './ac02edit01-page/ac02edit01-page.component';
 import { Ac02imgviewPageComponent } from './ac02imgview-page/ac02imgview-page.component';
+import { NgbModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [Ac02viewPageComponent, Ac02edit01PageComponent, Ac02imgviewPageComponent, Ac02docstatusPipe],
@@ -42,7 +43,9 @@ import { Ac02imgviewPageComponent } from './ac02imgview-page/ac02imgview-page.co
     MatInputModule,
     MatCardModule,
     MatPaginatorModule,
-    MatRadioModule
+    MatRadioModule,
+    NgbModule,
+    NgbDatepickerModule
   ],
     entryComponents: [Ac02edit01PageComponent, Ac02imgviewPageComponent]
 })

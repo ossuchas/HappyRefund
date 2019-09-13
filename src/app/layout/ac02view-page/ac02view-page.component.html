@@ -38,10 +38,10 @@
                     <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="contactid">
+                <!-- <ng-container matColumnDef="contactid">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>ContactID</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.contactid}}</mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <ng-container matColumnDef="fullname">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
@@ -57,6 +57,12 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.ac02_appv_flag | ac02docstatus }}</mat-cell>
                 </ng-container>
+
+                <ng-container matColumnDef="ac02_due_date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{ element.ac02_due_date | date:'dd/MM/yyyy'}}</mat-cell>
+                </ng-container>
+
                 <ng-container matColumnDef="Memo">
                     <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
                     <mat-cell *matCellDef="let row">

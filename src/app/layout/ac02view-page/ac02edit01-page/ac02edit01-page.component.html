@@ -6,48 +6,60 @@
 </div>
 <div class="container">
 
-<div style="overflow: auto; height: 450px;">
-    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Refund ID</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Refund ID</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
+                    [(ngModel)]="service.formData.hyrf_id">
             </div>
-            <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
-                [(ngModel)]="service.formData.hyrf_id">
-        </div>
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Modify By</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Modify By</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="ac02_appv_by" #ac02_appv_by="ngModel"
+                    [(ngModel)]="service.formData.ac02_appv_by">
             </div>
-            <input readonly="readonly" type="text" class="form-control" name="ac02_appv_by" #ac02_appv_by="ngModel"
-                [(ngModel)]="service.formData.ac02_appv_by">
-        </div>
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Status</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Status</span>
+                </div>
+                <mat-radio-group aria-label="Select an option" class="form-control" name="ac02_appv_flag"
+                    #ac02_appv_flag="ngModel" [(ngModel)]="service.formData.ac02_appv_flag">
+                    <mat-radio-button value="R">Reject</mat-radio-button>
+                    <mat-radio-button value="A">Approve</mat-radio-button>
+                </mat-radio-group>
             </div>
-            <mat-radio-group aria-label="Select an option" class="form-control" name="ac02_appv_flag"
-                #ac02_appv_flag="ngModel" [(ngModel)]="service.formData.ac02_appv_flag">
-                <mat-radio-button value="R">Reject</mat-radio-button>
-                <mat-radio-button value="A">Approve</mat-radio-button>
-            </mat-radio-group>
-        </div>
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Remarks</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Remarks</span>
+                </div>
+                <input type="text" class="form-control" name="ac02_remarks" #ac02_remarks="ngModel"
+                    [(ngModel)]="service.formData.ac02_remarks">
             </div>
-            <input type="text" class="form-control" name="ac02_remarks" #ac02_remarks="ngModel"
-                [(ngModel)]="service.formData.ac02_remarks">
-        </div>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Due Date</span>
+                </div>
+                <input class="form-control" placeholder="yyyy-mm-dd" name="ac02_due_date"
+                [(ngModel)]="service.formData.ac02_due_date" ngbDatepicker #ac02_due_date="ngbDatepicker"
+                [placement]="placement">
+                <div class="input-group-append">
+                    <button class="btn fa-calendar" (click)="ac02_due_date.toggle()" type="button"></button>
+                </div>
+            </div>
 
-        <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Update</button>
+            <!-- <button class="m-3" mat-raised-button color="primary" type="submit"
+            [disabled]="form.invalid">Update</button> -->
+            <button class="m-3" mat-raised-button color="primary" type="submit">Update</button>
 
-    </form>
+        </form>
+    </div>
+
 </div>
-
-</div>
-

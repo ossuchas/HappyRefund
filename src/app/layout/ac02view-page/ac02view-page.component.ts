@@ -26,10 +26,11 @@ export class Ac02viewPageComponent implements OnInit {
         'project',
         'unitnumber',
         'transferdateapprove',
-        'contactid',
+        // 'contactid',
         'fullname',
         'remainingtotalamount',
         'tf01_appv_flag',
+        'ac02_due_date',
         'Memo'
     ];
 
@@ -59,6 +60,7 @@ export class Ac02viewPageComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = '55%';
+        // dialogConfig.height = '100%';
         this.dialog.open(Ac02edit01PageComponent, dialogConfig);
     }
 
