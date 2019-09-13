@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar, MatRadioButton, MatDatepicker } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { CrmcontactrefundService } from 'src/app/shared';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { User, AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-ac02edit01-page',
@@ -10,12 +10,17 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./ac02edit01-page.component.scss']
 })
 export class Ac02edit01PageComponent implements OnInit {
-    placement = 'center';
     constructor(
         public dialogbox: MatDialogRef<Ac02edit01PageComponent>,
         public service: CrmcontactrefundService,
-        private snackBar: MatSnackBar
-    ) {}
+        private snackBar: MatSnackBar,
+        private authService: AuthenticationService
+    ) {
+        this.currentUser = this.authService.currentUserValue;
+    }
+    placement = 'center';
+
+    currentUser: any;
 
     ngOnInit() {}
 
@@ -25,8 +30,9 @@ export class Ac02edit01PageComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
+        // console.log('Current User: ' + this.currentUser.userPrincipalName);
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
-        // console.log('Submit due_date= ' + form.value.ac02_due_date.day);
+        form.value.ac02_appv_by = this.currentUser.userPrincipalName;
         console.log(form.value);
         this.service.updateAC02Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {

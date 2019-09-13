@@ -46,6 +46,7 @@ export class Ac02imgviewPageComponent implements OnInit {
     onView(data: CrmContactRefundListImgUrl) {
         console.log(data.img_id);
         const img_url = data.img_url;
+        // const img_url = 'http://192.168.2.29:9400/happyrefundcs/05a7c336d5fc11e99af60a580a8101e3_2196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=MD6RUWLB2UL23HWWIQ95%2F20190913%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190913T095909Z&X-Amz-Expires=172800&X-Amz-SignedHeaders=host&X-Amz-Signature=555709c966d4e30b97c5df815938802b79463d9f1ce4856969204a36dc5b625b';
         window.open(img_url, '_blank');
     }
 }
