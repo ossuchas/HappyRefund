@@ -1,6 +1,5 @@
 export const environment = {
   production: true,
-  message: 'hello prod',
 //   apiUrl: 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1',
   apiUrl: 'http://happyrefundapi-happyrefunds.devops-app.apthai.com/api/v1',
   memoUrl_1: 'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=\

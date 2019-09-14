@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar, MatRadioButton } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { CrmcontactrefundService } from 'src/app/shared';
+import { User, AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-tf02edit01-page',
@@ -12,8 +13,12 @@ export class Tf02edit01PageComponent implements OnInit {
     constructor(
         public dialogbox: MatDialogRef<Tf02edit01PageComponent>,
         public service: CrmcontactrefundService,
-        private snackBar: MatSnackBar
-    ) {}
+        private snackBar: MatSnackBar,
+        private authService: AuthenticationService
+    ) {
+        this.currentUser = this.authService.currentUserValue;
+    }
+    currentUser: any;
 
     ngOnInit() {}
 
@@ -24,6 +29,7 @@ export class Tf02edit01PageComponent implements OnInit {
 
     onSubmit(form: NgForm) {
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
+        form.value.tf02_appv_by = this.currentUser.userPrincipalName;
         console.log(form.value);
         this.service.updateTF02Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
