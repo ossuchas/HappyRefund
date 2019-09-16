@@ -29,7 +29,9 @@ export class Tf02edit01PageComponent implements OnInit {
 
     onSubmit(form: NgForm) {
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
+        console.log('Current User' + this.currentUser.userPrincipalName);
         form.value.tf02_appv_by = this.currentUser.userPrincipalName;
+        console.log('tf02_appv_by' + form.value.t201_appv_by);
         console.log(form.value);
         this.service.updateTF02Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {

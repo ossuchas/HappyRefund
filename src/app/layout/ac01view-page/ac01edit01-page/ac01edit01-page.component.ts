@@ -29,6 +29,7 @@ export class Ac01edit01PageComponent implements OnInit {
 
     onSubmit(form: NgForm) {
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
+        console.log('Current User' + this.currentUser.userPrincipalName);
         form.value.ac01_appv_by = this.currentUser.userPrincipalName;
         console.log(form.value);
         this.service.updateAC01Status(form.value).subscribe(res => {
