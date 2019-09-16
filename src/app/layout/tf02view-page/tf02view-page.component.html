@@ -38,28 +38,28 @@
                     <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="contactid">
+                <!-- <ng-container matColumnDef="contactid">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>ContactID</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.contactid}}</mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <ng-container matColumnDef="fullname">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.fullname}}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.coownername }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="remainingtotalamount">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number }}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Refund Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.remainingtotalamount | number }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="tf01_appv_flag">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.tf02_appv_flag | tf02docstatus }}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf02_appv_flag | tf02docstatus }}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="Memo">
-                    <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
+                    <mat-header-cell *matHeaderCellDef style="direction: rtl">Memo</mat-header-cell>
+                    <mat-cell *matCellDef="let row" style="direction: rtl">
                         <button mat-icon-button (click)="onViewMemo(row.transfernumber)">
                             <mat-icon>message</mat-icon>
                         </button>

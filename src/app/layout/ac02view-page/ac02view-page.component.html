@@ -45,27 +45,27 @@
 
                 <ng-container matColumnDef="fullname">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.fullname}}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.coownername }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="remainingtotalamount">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Refund Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="tf01_appv_flag">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.ac02_appv_flag | ac02docstatus }}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_flag | ac02docstatus }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="ac02_due_date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.ac02_due_date | date:'dd/MM/yyyy'}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Due Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_due_date | date:'dd/MM/yyyy'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="Memo">
-                    <mat-header-cell *matHeaderCellDef>Memo</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
+                    <mat-header-cell *matHeaderCellDef style="direction: rtl">Memo</mat-header-cell>
+                    <mat-cell *matCellDef="let row" style="direction: rtl">
                         <button mat-icon-button (click)="onViewMemo(row.transfernumber)">
                             <mat-icon>message</mat-icon>
                         </button>

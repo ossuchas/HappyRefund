@@ -26,7 +26,7 @@ export class Ac01viewPageComponent implements OnInit {
         'project',
         'unitnumber',
         'transferdateapprove',
-        'contactid',
+        // 'contactid',
         'fullname',
         'remainingtotalamount',
         'tf01_appv_flag',
