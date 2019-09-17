@@ -39,5 +39,8 @@ export class Ac02edit01PageComponent implements OnInit {
                 duration: 3000
             });
         });
+
+        this.dialogbox.close();
+        this.service.filter('Update click');
     }
 }
