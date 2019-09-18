@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class Tf02docstatusPipe implements PipeTransform {
     transform(value: any, args?: any): any {
         if (value === 'N') {
-            return 'รอตรวจยืนยันเอกสาร';
+            return 'ยืนยันการส่งเอกสาร';
         } else if (value === 'A') {
-            return 'เอกสารผ่านยืนยันแล้ว';
+            return 'อนุมัติ Memo';
         } else if (value === 'R') {
             return 'เอกสารไม่ผ่าน';
         } else {
