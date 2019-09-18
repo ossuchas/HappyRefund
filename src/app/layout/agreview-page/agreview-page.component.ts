@@ -8,6 +8,7 @@ import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 import { environment } from 'src/environments/environment';
 import { AgimgviewPageComponent } from './agimgview-page/agimgview-page.component';
 
+
 @Component({
     selector: 'app-agreview-page',
     templateUrl: './agreview-page.component.html',
@@ -37,6 +38,9 @@ export class AgreviewPageComponent implements OnInit {
 
     @ViewChild(MatSort, null) sort: MatSort;
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+    // Base url
+    readonly APIUrl = environment.apiUrl;
 
     ngOnInit() {
         this.refreshDataList();
@@ -82,7 +86,7 @@ export class AgreviewPageComponent implements OnInit {
     onViewMemo(transfernumber: string) {
         console.log(transfernumber);
         const img_url =
-            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_2&PFName=PF_TR_009_2.rpt&ParaName=@TransferNumber&ParaValue=' +
+            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_1&PFName=PF_TR_009_1.rpt&ParaName=@TransferNumber&ParaValue=' +
             transfernumber +
             '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
         // window.open('http://www.google.com', '_blank');
