@@ -1,29 +1,39 @@
 table {
     width: 100%;
-  }
+}
 
 .card-header {
     color: white;
-    background-color:#595957;
+    background-color: #595957;
 }
 
-mat-table{
-    font-size:8px;
+.mat-table {
+    font-size: 8px;
     font-family: AP-Regular;
     color: #1a084c;
-    overflow:auto;
+    overflow: auto;
 }
 
-mat-header-cell {
-    font-size:13px;
+.mat-header-cell {
+    font-size: 13px;
     font-family: AP-Bold;
     background-color: gray;
     color: white;
-    overflow:auto;
+    overflow: auto;
+    text-align: center;
 }
 
-mat-cell {
-    font-size:12px;
+.mat-column-approve4by {
+    text-align: center;
+    justify-content: center;
+}
+
+.mat-column-unitnumber{
+    text-align: center;
+    justify-content: center;
+}
+
+.mat-cell {
+    font-size: 12px;
     font-family: AP-Regular;
 }
-
