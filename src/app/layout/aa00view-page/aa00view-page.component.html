@@ -21,10 +21,10 @@
                     <mat-cell *matCellDef="let element">{{ element.unitnumber}}</mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="contractnumber">
+                <!-- <ng-container matColumnDef="contractnumber">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>contractnumber</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.contractnumber}}</mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <ng-container matColumnDef="transferdateapprove">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>TransferDate</mat-header-cell>
@@ -37,18 +37,23 @@
                 </ng-container>
 
                 <ng-container matColumnDef="remainingtotalamount">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Refund Amount</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header  style="direction: rtl">Refund Amount</mat-header-cell>
+                    <mat-cell *matCellDef="let element"  style="direction: rtl">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="approvedate4">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Appv#4 Date</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.approvedate4| date:'dd/MM/yyyy'}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header  style="direction: rtl">Appv#4 Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element"  style="direction: rtl">{{ element.approvedate4| date:'dd/MM/yyyy'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="approve4by">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Appv#4 by</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.approve4by}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header  style="direction: rtl">Appv#4 by</mat-header-cell>
+                    <mat-cell *matCellDef="let element"  style="direction: rtl">{{ element.approve4by}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="refundstatus">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header  style="direction: rtl">Last Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element"  style="direction: rtl">{{ element.refundstatus }}</mat-cell>
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>

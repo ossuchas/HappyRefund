@@ -14,4 +14,5 @@ export class CrmContactRefundAppv4View {
     email: string;
     approvedate4: Date;
     approve4by: string;
+    refundstatus: string;
 }

@@ -22,12 +22,13 @@ export class Aa00viewPageComponent implements OnInit {
         // 'Options',
         'project',
         'unitnumber',
-        'contractnumber',
+        // 'contractnumber',
         'transferdateapprove',
         'fullname',
         'remainingtotalamount',
         'approvedate4',
-        'approve4by'
+        'approve4by',
+        'refundstatus'
     ];
 
     @ViewChild(MatSort, null) sort: MatSort;
