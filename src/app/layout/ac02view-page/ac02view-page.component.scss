@@ -7,27 +7,29 @@ table {
     background-color:#595957;
 }
 
-mat-table{
+.mat-table{
     font-size:8px;
     font-family: AP-Regular;
     color: #1a084c;
     overflow:auto;
 }
 
-mat-header-cell {
+.mat-header-cell {
     font-size:13px;
     font-family: AP-Bold;
     background-color: gray;
     color: white;
     overflow:auto;
+    text-align: center;
 }
 
-mat-cell {
+.mat-cell {
     font-size:12px;
     font-family: AP-Regular;
 }
 
-// .mat-column-remainingtotalamount{
-//     text-align: right;
-//     justify-content: flex-end;
-//   }
+.mat-column-unitnumber{
+    text-align: center;
+    justify-content: center;
+}
+

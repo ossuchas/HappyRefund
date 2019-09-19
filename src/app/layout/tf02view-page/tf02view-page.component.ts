@@ -76,12 +76,19 @@ export class Tf02viewPageComponent implements OnInit {
         this.dialog.open(Tf02imgviewPageComponent, dialogConfig);
     }
 
-    onViewMemo(transfernumber: string) {
-        console.log(transfernumber);
-        const img_url =
-            'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_1&PFName=PF_TR_009_1.rpt&ParaName=@TransferNumber&ParaValue=' +
-            transfernumber +
-            '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
-        window.open(img_url, '_blank');
+    onViewMemo(transfernumber: string, tf02_appv_flag: string) {
+        if (tf02_appv_flag === 'A') {
+            const img_url =
+                'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_HFA&PFName=PF_TR_009_HFA.rpt&ParaName=@TransferNumber&ParaValue=' +
+                transfernumber +
+                '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
+            window.open(img_url, '_blank');
+        } else {
+            const img_url =
+                'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_HF&PFName=PF_TR_009_HF.rpt&ParaName=@TransferNumber&ParaValue=' +
+                transfernumber +
+                '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
+            window.open(img_url, '_blank');
+        }
     }
 }

@@ -50,7 +50,7 @@
 
                 <ng-container matColumnDef="remainingtotalamount">
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Refund Amount</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.remainingtotalamount | number }}</mat-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.remainingtotalamount | number : '1.2-2' }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="tf01_appv_flag">
@@ -60,7 +60,7 @@
                 <ng-container matColumnDef="Memo">
                     <mat-header-cell *matHeaderCellDef style="direction: rtl">Memo</mat-header-cell>
                     <mat-cell *matCellDef="let row" style="direction: rtl">
-                        <button mat-icon-button (click)="onViewMemo(row.transfernumber)">
+                        <button mat-icon-button (click)="onViewMemo(row.transfernumber, row.tf02_appv_flag)">
                             <mat-icon>message</mat-icon>
                         </button>
                     </mat-cell>
