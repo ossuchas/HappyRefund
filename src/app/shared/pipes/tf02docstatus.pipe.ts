@@ -10,7 +10,7 @@ export class Tf02docstatusPipe implements PipeTransform {
         } else if (value === 'A') {
             return 'อนุมัติ Memo';
         } else if (value === 'R') {
-            return 'เอกสารไม่ผ่าน';
+            return 'ไม่อนุมัติรายการ';
         } else {
             return 'N/A';
         }
