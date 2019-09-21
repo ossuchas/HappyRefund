@@ -92,4 +92,10 @@ export class Ac02viewPageComponent implements OnInit {
             window.open(img_url, '_blank');
         }
     }
+
+    onPrintPdf(hyrf: CrmContactRefund) {
+        // console.log(hyrf);
+        const img_url = hyrf.doc_merge_url;
+        window.open(img_url, '_blank');
+    }
 }

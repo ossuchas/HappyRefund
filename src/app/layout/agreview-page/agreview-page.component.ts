@@ -24,7 +24,6 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     listData: MatTableDataSource<any>;
-    // isValidate = false;
 
     displayedColumn: string[] = [
         'Options',
@@ -98,11 +97,6 @@ export class AgreviewPageComponent implements OnInit {
     onPrintPdf(hyrf: CrmContactRefund) {
         // console.log(hyrf);
         const img_url = hyrf.doc_merge_url;
-        // if (img_url == null) {
-        //     this.isValidate = false;
-        // } else {
-        //     this.isValidate = true;
-        // }
         window.open(img_url, '_blank');
     }
 }
