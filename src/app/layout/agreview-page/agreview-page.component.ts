@@ -24,6 +24,8 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     listData: MatTableDataSource<any>;
+    // isValidate = false;
+
     displayedColumn: string[] = [
         'Options',
         'project',
@@ -41,7 +43,6 @@ export class AgreviewPageComponent implements OnInit {
 
     // Base url
     readonly APIUrl = environment.apiUrl;
-
     ngOnInit() {
         this.refreshDataList();
     }
@@ -91,6 +92,17 @@ export class AgreviewPageComponent implements OnInit {
             '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
         // window.open('http://www.google.com', '_blank');
         // const img_url = environment.memoUrl_1 + transfernumber + environment.memoUrl_2;
+        window.open(img_url, '_blank');
+    }
+
+    onPrintPdf(hyrf: CrmContactRefund) {
+        // console.log(hyrf);
+        const img_url = hyrf.doc_merge_url;
+        // if (img_url == null) {
+        //     this.isValidate = false;
+        // } else {
+        //     this.isValidate = true;
+        // }
         window.open(img_url, '_blank');
     }
 }
