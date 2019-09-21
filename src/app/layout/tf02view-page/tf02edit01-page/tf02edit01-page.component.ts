@@ -35,7 +35,7 @@ export class Tf02edit01PageComponent implements OnInit {
         console.log(form.value);
         this.service.updateTF02Status(form.value).subscribe(res => {
             this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
-                duration: 3000
+                duration: 2000
             });
         });
 

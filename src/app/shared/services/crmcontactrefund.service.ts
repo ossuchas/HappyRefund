@@ -107,6 +107,13 @@ export class CrmcontactrefundService {
         );
     }
 
+    updateAC02Reject(data): Observable<CrmContactRefund> {
+        return this.http.put<CrmContactRefund>(this.APIUrl + '/ac02reject/' + data.hyrf_id, JSON.stringify(data), this.httpOptions).pipe(
+            retry(1),
+            catchError(this.errorHandl)
+        );
+    }
+
     // PUT
     updateRefund(data): Observable<CrmContactRefund> {
         return this.http.put<CrmContactRefund>(this.APIUrl + '/refund/' + data.hyrf_id, JSON.stringify(data), this.httpOptions).pipe(
