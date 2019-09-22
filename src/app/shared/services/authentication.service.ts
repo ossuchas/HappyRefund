@@ -5,12 +5,14 @@ import { retry, catchError } from 'rxjs/operators';
 import { User } from '../models';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { CrmcontactrefundService } from 'src/app/shared/services';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
+    public service: CrmcontactrefundService;
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
@@ -42,11 +44,17 @@ export class AuthenticationService {
     login(_username: string, _password: string) {
         return this.http.post<User>(this.APIUrl + '/login', { username: _username, password: _password }, this.httpOptions).pipe(
             map(user => {
-                // if (user && user.token) {
-                //     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                //     localStorage.setItem('currentUser', JSON.stringify(user));
-                // }
+                this.http.get<string>(this.APIUrl + '/checkroleauth/' + user.employeeID).subscribe (data => {
+                // this.http.get<string>(this.APIUrl + '/checkroletf01/' + 'AP000782').subscribe (data => {
+                    // user.roletf01 = data['message'];
+                    user.roletf01 = data['menurefundtf1'];
+                    user.roletf02 = data['menurefundtf2'];
+                    user.roleac01 = data['menurefundac01'];
+                    user.roleac02 = data['menurefundac01'];
+                });
+                // console.log(user.roletf01);
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log(user);
                 this.currentUserSubject.next(user);
                 return user;
             })

@@ -22,4 +22,8 @@ export class User {
     appUserRole: string;
     userProject: string;
     userApp: string;
+    roletf01: string;
+    roletf02: string;
+    roleac01: string;
+    roleac02: string;
 }

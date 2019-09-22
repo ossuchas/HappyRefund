@@ -7,7 +7,7 @@ import { CrmContactRefund } from 'src/app/shared';
 import { Agedit01PageComponent } from './agedit01-page/agedit01-page.component';
 import { environment } from 'src/environments/environment';
 import { AgimgviewPageComponent } from './agimgview-page/agimgview-page.component';
-
+import { AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-agreview-page',
@@ -16,13 +16,28 @@ import { AgimgviewPageComponent } from './agimgview-page/agimgview-page.componen
     animations: [routerTransition()]
 })
 export class AgreviewPageComponent implements OnInit {
-    constructor(private service: CrmcontactrefundService, private dialog: MatDialog, private snackBar: MatSnackBar) {
+    constructor(
+        private service: CrmcontactrefundService,
+        private dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        private authService: AuthenticationService
+    ) {
+        this.currentUser = this.authService.currentUserValue;
+
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList();
         });
-    }
 
+        // console.log(this.currentUser.roletf01);
+        // if (this.currentUser.roletf01 === '1') {
+        //     this.isAuthorized = true;
+        // } else {
+        //     this.isAuthorized = false;
+        // }
+    }
+    currentUser: any;
+    isAuthorized = true;
     listData: MatTableDataSource<any>;
 
     displayedColumn: string[] = [
@@ -45,8 +60,8 @@ export class AgreviewPageComponent implements OnInit {
     ngOnInit() {
         this.refreshDataList();
     }
-
     refreshDataList() {
+        // console.log(this.messageAPI);
         this.service.getCSSentList().subscribe(data => {
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;
@@ -69,8 +84,6 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     onView(hyrf: CrmContactRefund) {
-        // const img_url = 'http://happyrefundapi-happyrefund.devops-app.apthai.com/api/v1/image/01.jpg';
-        // window.open(img_url, '_blank');
         console.log(hyrf);
         this.service.formData = hyrf;
         const dialogConfig = new MatDialogConfig();
@@ -84,13 +97,10 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     onViewMemo(transfernumber: string) {
-        console.log(transfernumber);
         const img_url =
             'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=PF_TR_009_1&PFName=PF_TR_009_1.rpt&ParaName=@TransferNumber&ParaValue=' +
             transfernumber +
             '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
-        // window.open('http://www.google.com', '_blank');
-        // const img_url = environment.memoUrl_1 + transfernumber + environment.memoUrl_2;
         window.open(img_url, '_blank');
     }
 

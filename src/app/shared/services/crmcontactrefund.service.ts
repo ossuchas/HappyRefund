@@ -122,6 +122,11 @@ export class CrmcontactrefundService {
         );
     }
 
+    // Check Role
+    checkRoleTF01(_username: string): Observable<string> {
+        return this.http.get<string>(this.APIUrl + '/checkroletf01/' + _username);
+    }
+
     // Error handling
     errorHandl(error) {
         let errorMessage = '';
