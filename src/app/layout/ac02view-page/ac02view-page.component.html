@@ -1,12 +1,13 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Final Confirm Document by Accounting'" [icon]="'fa-edit'">
     </app-page-header>
-    <div class="container" *ngIf="!isAuthorized">
+    <!-- <div class="container" *ngIf="!isAuthorized">
         <label class="d-flex justify-content-center"><h3>Not Authorized</h3></label>
         <label class="d-flex justify-content-center">คุณไม่มีสิทธิเข้าใช้งานหน้านี้ได้</label>
         <label class="d-flex justify-content-center">You are not Authorized to Access this Web Page</label>
     </div>
-    <div class="container" *ngIf="isAuthorized">
+    <div class="container" *ngIf="isAuthorized"> -->
+    <div class="container">
         <div class="mat-elevation-z8">
             <div class="card-header">ข้อมูลแสดงรายการลูกค้า (รอยืนยันเอกสารทางบัญชี)</div>
             <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
@@ -63,7 +64,7 @@
 
                 <ng-container matColumnDef="tf01_appv_flag">
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_flag | ac02docstatus }}</mat-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_flag | ac02docstatus }} {{ element.ac01_appv_by }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="ac02_due_date">
