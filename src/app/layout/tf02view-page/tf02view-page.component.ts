@@ -6,6 +6,7 @@ import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, M
 import { CrmContactRefund } from 'src/app/shared';
 import { Tf02edit01PageComponent } from './tf02edit01-page/tf02edit01-page.component';
 import { Tf02imgviewPageComponent } from './tf02imgview-page/tf02imgview-page.component';
+import { AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-tf02view-page',
@@ -14,12 +15,28 @@ import { Tf02imgviewPageComponent } from './tf02imgview-page/tf02imgview-page.co
     animations: [routerTransition()]
 })
 export class Tf02viewPageComponent implements OnInit {
-    constructor(private service: CrmcontactrefundService, private dialog: MatDialog, private snackBar: MatSnackBar) {
+    constructor(
+        private service: CrmcontactrefundService,
+        private dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        private authService: AuthenticationService
+    ) {
+        this.currentUser = this.authService.currentUserValue;
+
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList();
         });
+
+        console.log('roletf02 : ' + this.currentUser.roletf02);
+        if (this.currentUser.roletf02 === '1') {
+            this.isAuthorized = true;
+        } else {
+            this.isAuthorized = false;
+        }
     }
+    currentUser: any;
+    isAuthorized = true;
 
     listData: MatTableDataSource<any>;
     displayedColumn: string[] = [

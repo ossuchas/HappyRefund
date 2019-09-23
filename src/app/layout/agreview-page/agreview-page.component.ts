@@ -29,12 +29,12 @@ export class AgreviewPageComponent implements OnInit {
             this.refreshDataList();
         });
 
-        // console.log(this.currentUser.roletf01);
-        // if (this.currentUser.roletf01 === '1') {
-        //     this.isAuthorized = true;
-        // } else {
-        //     this.isAuthorized = false;
-        // }
+        console.log('roletf01 : ' + this.currentUser.roletf01);
+        if (this.currentUser.roletf01 === '1') {
+            this.isAuthorized = true;
+        } else {
+            this.isAuthorized = false;
+        }
     }
     currentUser: any;
     isAuthorized = true;

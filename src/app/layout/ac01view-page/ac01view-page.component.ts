@@ -6,6 +6,7 @@ import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, M
 import { CrmContactRefund } from 'src/app/shared';
 import { Ac01edit01PageComponent } from './ac01edit01-page/ac01edit01-page.component';
 import { Ac01imgviewPageComponent } from './ac01imgview-page/ac01imgview-page.component';
+import { AuthenticationService } from 'src/app/shared';
 
 @Component({
     selector: 'app-ac01view-page',
@@ -14,12 +15,27 @@ import { Ac01imgviewPageComponent } from './ac01imgview-page/ac01imgview-page.co
     animations: [routerTransition()]
 })
 export class Ac01viewPageComponent implements OnInit {
-    constructor(private service: CrmcontactrefundService, private dialog: MatDialog, private snackBar: MatSnackBar) {
+    constructor(
+        private service: CrmcontactrefundService,
+        private dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        private authService: AuthenticationService
+    ) {
+        this.currentUser = this.authService.currentUserValue;
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList();
         });
+
+        console.log('roleac01 : ' + this.currentUser.roleac01);
+        if (this.currentUser.roleac01 === '1') {
+            this.isAuthorized = true;
+        } else {
+            this.isAuthorized = false;
+        }
     }
+    currentUser: any;
+    isAuthorized = true;
     listData: MatTableDataSource<any>;
     displayedColumn: string[] = [
         'Options',
