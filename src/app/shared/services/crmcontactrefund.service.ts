@@ -99,6 +99,11 @@ export class CrmcontactrefundService {
         return this.http.get<CrmContactRefund[]>(this.APIUrl + '/ac02alllist');
     }
 
+    // Get All Status List after AC02
+    getAC03AllList(): Observable<CrmContactRefund[]> {
+        return this.http.get<CrmContactRefund[]>(this.APIUrl + '/ac02appvlist');
+    }
+
     // PUT
     updateAC02Status(data): Observable<CrmContactRefund> {
         return this.http.put<CrmContactRefund>(this.APIUrl + '/ac02approved/' + data.hyrf_id, JSON.stringify(data), this.httpOptions).pipe(

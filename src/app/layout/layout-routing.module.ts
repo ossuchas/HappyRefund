@@ -20,6 +20,7 @@ const routes: Routes = [
             { path: 'tf02view-page', loadChildren: () => import('./tf02view-page/tf02view-page.module').then(m => m.Tf02viewPageModule) },
             { path: 'ac01view-page', loadChildren: () => import('./ac01view-page/ac01view-page.module').then(m => m.Ac01viewPageModule) },
             { path: 'ac02view-page', loadChildren: () => import('./ac02view-page/ac02view-page.module').then(m => m.Ac02viewPageModule) },
+            { path: 'ac03view-page', loadChildren: () => import('./ac03view-page/ac03view-page.module').then(m => m.Ac03viewPageModule) },
             { path: 'aa00view-page', loadChildren: () => import('./aa00view-page/aa00view-page.module').then(m => m.Aa00viewPageModule) }
         ]
     }

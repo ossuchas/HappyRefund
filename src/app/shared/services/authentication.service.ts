@@ -50,7 +50,14 @@ export class AuthenticationService {
                     user.roletf01 = data['menurefundtf1'];
                     user.roletf02 = data['menurefundtf2'];
                     user.roleac01 = data['menurefundac01'];
-                    user.roleac02 = data['menurefundac01'];
+                    user.roleac02 = data['menurefundac02'];
+                    user.roleac03 = data['menurefundac03'];
+
+                    localStorage.setItem('roletf01', data['menurefundtf1']);
+                    localStorage.setItem('roletf02', data['menurefundtf2']);
+                    localStorage.setItem('roleac01', data['menurefundac01']);
+                    localStorage.setItem('roleac02', data['menurefundac02']);
+                    localStorage.setItem('roleac03', data['menurefundac03']);
                 });
                 // console.log(user.roletf01);
                 localStorage.setItem('currentUser', JSON.stringify(user));
@@ -65,6 +72,11 @@ export class AuthenticationService {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isLoggedin');
+        localStorage.removeItem('roletf01');
+        localStorage.removeItem('roletf02');
+        localStorage.removeItem('roleac01');
+        localStorage.removeItem('roleac02');
+        localStorage.removeItem('roleac03');
         this.currentUserSubject.next(null);
     }
 

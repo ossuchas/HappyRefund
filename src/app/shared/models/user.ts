@@ -26,4 +26,5 @@ export class User {
     roletf02: string;
     roleac01: string;
     roleac02: string;
+    roleac03: string;
 }

@@ -15,27 +15,53 @@ export class SidebarComponent implements OnInit {
     showMenu: string;
     pushRightClass: string;
 
+    // Check Role by Menu
+    isTf01: boolean;
+    isTf02: boolean;
+    isAc01: boolean;
+    isAc02: boolean;
+    isAc03: boolean;
+
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(
-        private translate: TranslateService,
-        public router: Router,
-        private authService: AuthenticationService
-        ) {
-            this.router.events.subscribe(val => {
-                if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
-                    this.toggleSidebar();
-                }
-            });
+    constructor(private translate: TranslateService, public router: Router, private authService: AuthenticationService) {
+        this.router.events.subscribe(val => {
+            if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
+                this.toggleSidebar();
+            }
+        });
 
-            this.currentUser = this.authService.currentUserValue;
-        }
+        this.currentUser = this.authService.currentUserValue;
+        // console.log(localStorage.getItem('roletf01'));
+        // console.log(localStorage.getItem('roletf02'));
+        // console.log(localStorage.getItem('roleac01'));
+        // console.log(localStorage.getItem('roleac02'));
+        // console.log(localStorage.getItem('roleac03'));
+    }
 
     ngOnInit() {
         this.isActive = false;
         this.collapsed = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
+
+        this.isTf01 = (localStorage.getItem('roletf01') === '1') ? true : false;
+        this.isTf02 = (localStorage.getItem('roletf02') === '1') ? true : false;
+        this.isAc01 = (localStorage.getItem('roleac01') === '1') ? true : false;
+        this.isAc02 = (localStorage.getItem('roleac02') === '1') ? true : false;
+        this.isAc03 = (localStorage.getItem('roleac03') === '1') ? true : false;
+
+        // if (localStorage.getItem('roletf01') === '1') {
+        //     this.isTf01 = true;
+        // } else {
+        //     this.isTf01 = false;
+        // }
+
+        // if (localStorage.getItem('roletf02') === '1') {
+        //     this.isTf02 = true;
+        // } else {
+        //     this.isTf02 = false;
+        // }
     }
 
     eventCalled() {

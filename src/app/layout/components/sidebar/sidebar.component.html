@@ -8,25 +8,30 @@
             <i class="fa fa-inbox"></i>&nbsp;
             <span>{{ 'สถานะรายการ' | translate }}</span>
         </a>
-
-        <a [routerLink]="['/agreview-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/agreview-page']" [routerLinkActive]="['router-link-active']" class="list-group-item"
+            *ngIf="isTf01">
             <i class="fa fa-search"></i>&nbsp;
             <span>{{ 'ตรวจเอกสารลูกค้า' | translate }}</span>
         </a>
-
-        <a [routerLink]="['/tf02view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/tf02view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item"
+            *ngIf="isTf02">
             <i class="fa fa-edit"></i>&nbsp;
             <span>{{ 'ยืนยันรายการเอกสาร' | translate }}</span>
         </a>
-
-        <a [routerLink]="['/ac01view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/ac01view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item"
+            *ngIf="isAc01">
             <i class="fa fa-th-list"></i>&nbsp;
             <span>{{ 'ตรวจเอกสารทางบัญชี' | translate }}</span>
         </a>
-
-        <a [routerLink]="['/ac02view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/ac02view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item"
+            *ngIf="isAc02">
             <i class="fa fa-desktop"></i>&nbsp;
             <span>{{ 'ยืนยันเอกสารทางบัญชี' | translate }}</span>
+        </a>
+        <a [routerLink]="['/ac03view-page']" [routerLinkActive]="['router-link-active']" class="list-group-item"
+            *ngIf="isAc03">
+            <i class="fa fa-fw fa-table"></i>&nbsp;
+            <span>{{ 'แก้ไขรายการทางบัญชี' | translate }}</span>
         </a>
 
         <!-- <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">

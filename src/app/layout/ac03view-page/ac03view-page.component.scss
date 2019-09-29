@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+  }
+
+.card-header {
+    color: white;
+    background-color:#595957;
+}
+
+.mat-table{
+    font-size:8px;
+    font-family: AP-Regular;
+    color: #1a084c;
+    overflow:auto;
+}
+
+.mat-header-cell {
+    font-size:13px;
+    font-family: AP-Bold;
+    background-color: gray;
+    color: white;
+    overflow:auto;
+    text-align: center;
+}
+
+.mat-cell {
+    font-size:12px;
+    font-family: AP-Regular;
+}
+
+.mat-column-unitnumber{
+    text-align: center;
+    justify-content: center;
+}
+
+.mat-column-tf01_appv_flag{
+    text-align: center;
+    justify-content: center;
+}
+
+.mat-column-Memo{
+    text-align: center;
+    justify-content: center;
+}
