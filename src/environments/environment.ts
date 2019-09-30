@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-//   apiUrl: 'http://192.168.0.42:5000/api/v1',
-  apiUrl: 'http://localhost:5000/api/v1',
+  apiUrl: 'http://192.168.0.42:5000/api/v1',
+//   apiUrl: 'http://localhost:5000/api/v1',
   memoUrl_1: 'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=\
   PF_TR_009_1&PFName=PF_TR_009_1.rpt&ParaName=@TransferNumber&ParaValue=',
   memoUrl_2: '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@\

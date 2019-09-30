@@ -13,6 +13,7 @@ export class CrmContactRefundAppv4View {
     mobile: string;
     email: string;
     approvedate4: Date;
+    approvedate4text: string;
     approve4by: string;
     refundstatus: string;
 }
