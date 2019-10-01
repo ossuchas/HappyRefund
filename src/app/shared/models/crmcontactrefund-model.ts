@@ -23,6 +23,13 @@ export class CrmContactRefund {
     mobile: string;
     email: string;
 
+    bankcode: string;
+    bankaccountno: string;
+    legalentityid: string;
+    legalentiryname: string;
+    legalbankcode: string;
+    legalbankaccountno: string;
+
     tf01_appv_flag:	string;
     tf01_appv_date:	Date;
     tf01_appv_by: string;
