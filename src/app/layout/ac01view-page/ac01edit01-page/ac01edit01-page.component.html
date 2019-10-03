@@ -50,6 +50,21 @@
         <label>&nbsp;&nbsp;</label>
         <button color="primary" type="submit" (click)="onSubmit(form)" class="btn btn-primary" >Approved</button>
             </mat-dialog-actions> -->
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">บัญชีธนาคารลูกค้า</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="bankcode" #bankcode="ngModel"
+                    [(ngModel)]="service.formData.bankcode">
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">เลขที่บัญชีลูกค้า</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="bankaccountno" #bankaccountno="ngModel"
+                    [(ngModel)]="service.formData.bankaccountno">
+            </div>
 
             <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Update</button>
 

@@ -6,56 +6,72 @@
 </div>
 <div class="container">
 
-<div style="overflow: auto; height: 450px;">
-    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Refund ID</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Refund ID</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
+                    [(ngModel)]="service.formData.hyrf_id">
             </div>
-            <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
-                [(ngModel)]="service.formData.hyrf_id">
-        </div>
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Modify By</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Modify By</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="tf02_appv_by" #tf02_appv_by="ngModel"
+                    [(ngModel)]="service.formData.tf02_appv_by">
             </div>
-            <input readonly="readonly" type="text" class="form-control" name="tf02_appv_by" #tf02_appv_by="ngModel"
-                [(ngModel)]="service.formData.tf02_appv_by">
-        </div>
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Status</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Status</span>
+                </div>
+                <mat-radio-group aria-label="Select an option" class="form-control" name="tf02_appv_flag"
+                    #tf02_appv_flag="ngModel" [(ngModel)]="service.formData.tf02_appv_flag">
+                    <mat-radio-button value="R">Reject</mat-radio-button>
+                    <mat-radio-button value="A">Approve</mat-radio-button>
+                </mat-radio-group>
             </div>
-            <mat-radio-group aria-label="Select an option" class="form-control" name="tf02_appv_flag"
-                #tf02_appv_flag="ngModel" [(ngModel)]="service.formData.tf02_appv_flag">
-                <mat-radio-button value="R">Reject</mat-radio-button>
-                <mat-radio-button value="A">Approve</mat-radio-button>
-            </mat-radio-group>
-        </div>
 
 
-        <div class="m-3 input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Remarks</span>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Remarks</span>
+                </div>
+                <input type="text" class="form-control" name="tf02_remarks" #tf02_remarks="ngModel"
+                    [(ngModel)]="service.formData.tf02_remarks">
             </div>
-            <input type="text" class="form-control" name="tf02_remarks" #tf02_remarks="ngModel"
-                [(ngModel)]="service.formData.tf02_remarks">
-        </div>
 
-        <!-- <mat-dialog-actions align="end">
+            <!-- <mat-dialog-actions align="end">
 
         <button (click)="onReject(form)" class="btn btn-danger" >Reject</button>
         <label>&nbsp;&nbsp;</label>
         <button color="primary" type="submit" (click)="onSubmit(form)" class="btn btn-primary" >Approved</button>
             </mat-dialog-actions> -->
 
-        <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Update</button>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">บัญชีธนาคารลูกค้า</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="bankcode" #bankcode="ngModel"
+                    [(ngModel)]="service.formData.bankcode">
+            </div>
 
-    </form>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">เลขที่บัญชีลูกค้า</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="bankaccountno" #bankaccountno="ngModel"
+                    [(ngModel)]="service.formData.bankaccountno">
+            </div>
+
+            <button class="m-3" mat-raised-button color="primary" type="submit"
+                [disabled]="form.invalid">Update</button>
+
+        </form>
+    </div>
+
 </div>
-
-</div>
-
