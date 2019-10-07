@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar, MatRadioButton } from '@angular/material';
 import { NgForm } from '@angular/forms';
-import { CrmcontactrefundService } from 'src/app/shared';
+import { CrmcontactrefundService, VwCrmRefundBanknamelstService } from 'src/app/shared';
 import { User, AuthenticationService } from 'src/app/shared';
 import { VwCrmRefundMstBankService } from 'src/app/shared';
+
+import { MatTableDataSource, MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
+import { Inject } from '@angular/core';
 
 @Component({
     selector: 'app-agedit01-page',
@@ -16,15 +19,19 @@ export class Agedit01PageComponent implements OnInit {
         public service: CrmcontactrefundService,
         private snackBar: MatSnackBar,
         private authService: AuthenticationService,
-        public serviceBank: VwCrmRefundMstBankService
+        public serviceBank: VwCrmRefundMstBankService,
+        public serviceBankName: VwCrmRefundBanknamelstService,
+        @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         this.currentUser = this.authService.currentUserValue;
     }
     currentUser: any;
     public listItems: Array<string> = [];
+    public listItemsBankName: Array<string> = [];
 
     ngOnInit() {
         this.dropdownBankMasterRefresh();
+        this.dropdownBankNameListRefresh(this.data.hyrf_id);
     }
 
     onClose() {
@@ -36,6 +43,14 @@ export class Agedit01PageComponent implements OnInit {
         this.serviceBank.getBankMaster().subscribe(data => {
             data.forEach(element => {
                 this.listItems.push(element['adbankname']);
+            });
+        });
+    }
+
+    dropdownBankNameListRefresh(id: number) {
+        this.serviceBankName.getBankAccountName(id).subscribe(data => {
+            data.forEach(element => {
+                this.listItemsBankName.push(element['fullname']);
             });
         });
     }

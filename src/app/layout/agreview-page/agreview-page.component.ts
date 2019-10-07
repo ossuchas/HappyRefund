@@ -80,6 +80,10 @@ export class AgreviewPageComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = '55%';
+        // dialogConfig.height = '55%';
+        dialogConfig.data = {
+            hyrf_id: hyrf.hyrf_id
+        };
         this.dialog.open(Agedit01PageComponent, dialogConfig);
     }
 

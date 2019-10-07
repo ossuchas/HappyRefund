@@ -6,7 +6,7 @@
 </div>
 <div class="container">
 
-    <div style="overflow: auto; height: 450px;">
+    <div style="overflow: auto; height: 470px;">
         <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
             <div class="m-3 input-group">
@@ -64,7 +64,17 @@
                 <input type="text" class="form-control" name="bankaccountno" #bankaccountno="ngModel"
                     [(ngModel)]="service.formData.bankaccountno" placeholder="ตัวอย่างเลขบัญชี 1234567890">
 
+            </div>
+
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">ชื่อบัญชีลูกค้า</span>
                 </div>
+                <select required type="text" class="form-control" name="bankaccountname" #bankaccountname="ngModel"
+                    [(ngModel)]="service.formData.bankaccountname">
+                    <option *ngFor="let dl of listItemsBankName" [value]="dl">{{ dl }}</option>
+                </select>
+            </div>
 
             <button class="m-3" mat-raised-button color="primary" type="submit"
                 [disabled]="form.invalid">Update</button>
