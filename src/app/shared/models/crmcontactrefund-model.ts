@@ -25,6 +25,7 @@ export class CrmContactRefund {
 
     bankcode: string;
     bankaccountno: string;
+    bankaccountname: string;
     legalentityid: string;
     legalentiryname: string;
     legalbankcode: string;
