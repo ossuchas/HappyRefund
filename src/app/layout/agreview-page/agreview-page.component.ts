@@ -82,7 +82,9 @@ export class AgreviewPageComponent implements OnInit {
         dialogConfig.width = '55%';
         // dialogConfig.height = '55%';
         dialogConfig.data = {
-            hyrf_id: hyrf.hyrf_id
+            hyrf_id: hyrf.hyrf_id,
+            productid: hyrf.productid,
+            unitnumber: hyrf.unitnumber
         };
         this.dialog.open(Agedit01PageComponent, dialogConfig);
     }

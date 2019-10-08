@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError, Subject } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
 import { CrmContactRefund } from '../models';
 import { environment } from 'src/environments/environment';
 
@@ -15,6 +15,7 @@ export class CrmcontactrefundService {
 
     // Base url
     readonly APIUrl = environment.apiUrl;
+    readonly APILineUrl = environment.apilineurl;
 
     // Http Headers
     httpOptions = {
@@ -130,6 +131,22 @@ export class CrmcontactrefundService {
     // Check Role
     checkRoleTF01(_username: string): Observable<string> {
         return this.http.get<string>(this.APIUrl + '/checkroletf01/' + _username);
+    }
+
+    // Send to Line Notify API
+    // POST
+    send2lineapi(_line_token: string, _line_owner: string, _send_msg: string) {
+        return this.http
+            .post<any>(
+                this.APILineUrl + '/aplineregister',
+                { line_token: _line_token, line_owner: _line_owner, send_msg: _send_msg },
+                this.httpOptions
+            )
+            .pipe(
+                map(data => {
+                    console.log(data);
+                })
+            );
     }
 
     // Error handling
