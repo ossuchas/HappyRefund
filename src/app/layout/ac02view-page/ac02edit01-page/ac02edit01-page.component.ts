@@ -33,22 +33,32 @@ export class Ac02edit01PageComponent implements OnInit {
         // console.log('Current User: ' + this.currentUser.userPrincipalName);
         console.log('Submit hyrf_id = ' + form.value.hyrf_id);
         if (form.value.ac02_appv_flag === 'A') {
-            if (form.value.ac02_due_date == null) {
-                this.snackBar.open('Please choose Due Date to refund..!!!', '', {
+            // if (form.value.ac02_due_date == null) {
+            //     this.snackBar.open('Please choose Due Date to refund..!!!', '', {
+            //         duration: 3000
+            //     });
+            // } else {
+            //     form.value.ac02_appv_by = this.currentUser.userPrincipalName;
+            //     console.log(form.value);
+            //     this.service.updateAC02Status(form.value).subscribe(res => {
+            //         this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
+            //             duration: 3000
+            //         });
+            //     });
+
+            //     this.dialogbox.close();
+            //     this.service.filter('Update click');
+            // }
+            form.value.ac02_appv_by = this.currentUser.userPrincipalName;
+            console.log(form.value);
+            this.service.updateAC02Status(form.value).subscribe(res => {
+                this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
                     duration: 3000
                 });
-            } else {
-                form.value.ac02_appv_by = this.currentUser.userPrincipalName;
-                console.log(form.value);
-                this.service.updateAC02Status(form.value).subscribe(res => {
-                    this.snackBar.open('Updated transaction Successful...!! [' + res.hyrf_id + ']', '', {
-                        duration: 3000
-                    });
-                });
+            });
 
-                this.dialogbox.close();
-                this.service.filter('Update click');
-            }
+            this.dialogbox.close();
+            this.service.filter('Update click');
         } else {
             form.value.ac02_appv_by = this.currentUser.userPrincipalName;
             this.service.updateAC02Reject(form.value).subscribe(res => {
