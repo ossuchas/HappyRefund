@@ -113,6 +113,15 @@ export class CrmcontactrefundService {
         );
     }
 
+    // PUT AC03 Update Status
+    // Modified by Suchat S. 2019-10-12 for update reason reject and change due refund date
+    updateAC03Status(data): Observable<CrmContactRefund> {
+        return this.http.put<CrmContactRefund>(this.APIUrl + '/ac03approved/' + data.hyrf_id, JSON.stringify(data), this.httpOptions).pipe(
+            retry(1),
+            catchError(this.errorHandl)
+        );
+    }
+
     updateAC02Reject(data): Observable<CrmContactRefund> {
         return this.http.put<CrmContactRefund>(this.APIUrl + '/ac02reject/' + data.hyrf_id, JSON.stringify(data), this.httpOptions).pipe(
             retry(1),

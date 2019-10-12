@@ -13,15 +13,20 @@
                 </div>
                 <input readonly="readonly" type="text" class="form-control" name="hyrf_id" #hyrf_id="ngModel"
                     [(ngModel)]="service.formData.hyrf_id">
-            </div>
-            <div class="m-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Modify By</span>
                 </div>
                 <input readonly="readonly" type="text" class="form-control" name="ac02_appv_by" #ac02_appv_by="ngModel"
                     [(ngModel)]="service.formData.ac02_appv_by">
             </div>
-            <div class="m-3 input-group">
+            <!-- <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Modify By</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="ac02_appv_by" #ac02_appv_by="ngModel"
+                    [(ngModel)]="service.formData.ac02_appv_by">
+            </div> -->
+            <!-- <div class="m-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Status</span>
                 </div>
@@ -30,6 +35,38 @@
                     <mat-radio-button value="R">Reject</mat-radio-button>
                     <mat-radio-button value="A">Approve</mat-radio-button>
                 </mat-radio-group>
+            </div> -->
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Type of Status</span>
+                </div>
+                <mat-radio-group aria-label="Select an option" class="form-control" name="ac03_reject_doc_flag"
+                #ac03_reject_doc_flag="ngModel" [(ngModel)]="service.formData.ac03_reject_doc_flag">
+                    <mat-radio-button value="Y">Reject</mat-radio-button>
+                    <mat-radio-button value="C">Change Due Refund Date</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">เหตุผลการ Reject</span>
+                </div>
+                <!-- <input type="text" class="form-control" name="ac03_reject_reason" #ac03_reject_reason="ngModel"
+                    [(ngModel)]="service.formData.ac03_reject_reason"> -->
+                <select required type="text" class="form-control" name="ac03_reject_reason" #ac03_reject_reason="ngModel"
+                    [(ngModel)]="service.formData.ac03_reject_reason">
+                    <option *ngFor="let dl of listItems" [value]="dl">{{ dl }}</option>
+                </select>
+            </div>
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Change Due Date</span>
+                </div>
+                <input class="form-control" placeholder="yyyy-mm-dd" name="ac03_change_due_date"
+                    [(ngModel)]="service.formData.ac03_change_due_date" ngbDatepicker
+                    #ac03_change_due_date="ngbDatepicker" [placement]="placement">
+                <div class="input-group-append">
+                    <button class="btn fa-calendar" (click)="ac03_change_due_date.toggle()" type="button"></button>
+                </div>
             </div>
             <div class="m-3 input-group">
                 <div class="input-group-prepend">
@@ -44,21 +81,26 @@
                 </div>
                 <input readonly="readonly" type="text" class="form-control" name="bankcode" #bankcode="ngModel"
                     [(ngModel)]="service.formData.bankcode">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">เลขที่บัญชีลูกค้า</span>
+                </div>
+                <input readonly="readonly" type="text" class="form-control" name="bankaccountno"
+                    #bankaccountno="ngModel" [(ngModel)]="service.formData.bankaccountno">
             </div>
-            <div class="m-3 input-group">
+            <!-- <div class="m-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">เลขที่บัญชีลูกค้า</span>
                 </div>
                 <input readonly="readonly" type="text" class="form-control" name="bankaccountno" #bankaccountno="ngModel"
                     [(ngModel)]="service.formData.bankaccountno">
-            </div>
+            </div> -->
 
             <div class="m-3 input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">ชื่อบัญชีลูกค้า</span>
                 </div>
-                <input readonly="readonly" type="text" class="form-control" name="bankaccountname" #bankaccountname="ngModel"
-                    [(ngModel)]="service.formData.bankaccountname">
+                <input readonly="readonly" type="text" class="form-control" name="bankaccountname"
+                    #bankaccountname="ngModel" [(ngModel)]="service.formData.bankaccountname">
             </div>
 
             <button class="m-3" mat-raised-button color="primary" type="submit">Update</button>
