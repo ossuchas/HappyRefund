@@ -16,4 +16,6 @@ export class CrmContactRefundAppv4View {
     approvedate4text: string;
     approve4by: string;
     refundstatus: string;
+    hyrf_id: number;
+    doc_merge_url: string;
 }

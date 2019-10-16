@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Document Review by Accouting'" [icon]="'fa-edit'">
+    <app-page-header [heading]="'Document Review by Accounting'" [icon]="'fa-edit'">
     </app-page-header>
     <div class="container">
         <div class="mat-elevation-z8">
@@ -54,6 +54,20 @@
                 <ng-container matColumnDef="refundstatus">
                     <mat-header-cell *matHeaderCellDef mat-sort-header  style="direction: rtl">Last Status</mat-header-cell>
                     <mat-cell *matCellDef="let element"  style="direction: rtl">{{ element.refundstatus }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="Info">
+                    <mat-header-cell *matHeaderCellDef>Info</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <!-- <button mat-icon-button (click)="onView(row)">
+                            <mat-icon>zoom_in</mat-icon>
+                        </button> -->
+                        <button mat-icon-button (click)="onPrintPdf(row)">
+                            <mat-icon>local_printshop</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onViewMemo(row.transfernumber, row.hyrf_id)">
+                            <mat-icon>message</mat-icon>
+                        </button>
+                    </mat-cell>
                 </ng-container>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>
