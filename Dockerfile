@@ -1,7 +1,7 @@
 ##### Stage 1
 
 # FROM node:10.16.0-alpine as node
-FROM "node:10-alpine as builder"
+FROM node:"10-alpine" as builder
 
 LABEL author="Suchat Sujalarnlap"
 
