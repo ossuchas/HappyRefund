@@ -1,7 +1,7 @@
 ##### Stage 1
 
-# FROM node:10.16.0-alpine as node
-FROM node:"10-alpine" as builder
+FROM node:10.16.0-alpine as node
+#FROM node:10-alpine as builder
 
 LABEL author="Suchat Sujalarnlap"
 
@@ -34,8 +34,8 @@ RUN ng build --prod
 FROM nginx:alpine
 
 #COPY --from=node /home/ubuntu/src/app/dist/happyrefund /usr/share/nginx/html
-#COPY --from=node /home/ubuntu/src/app/dist/ /usr/share/nginx/html
-COPY --from=builder /home/ubuntu/src/app/dist/ /usr/share/nginx/html
+COPY --from=node /home/ubuntu/src/app/dist/ /usr/share/nginx/html
+#COPY --from=builder /home/ubuntu/src/app/dist/ /usr/share/nginx/html
 #COPY --from=node /home/ubuntu/src/app/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
