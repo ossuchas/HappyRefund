@@ -3,7 +3,7 @@ pipeline {
     registry = "ossuchas/happyrefund"
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
-    image_tag_number = 'v1.28.4'
+    image_tag_number = 'v1.28.5'
   }
   agent any
   stages {
@@ -26,11 +26,6 @@ pipeline {
             dockerImage.push()
           }
         }
-      }
-    }
-    stage('Remove Dangling docker image') {
-      steps{
-        sh 'docker rmi $(docker images -f dangling=true -q)'
       }
     }
   }
