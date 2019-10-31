@@ -3,7 +3,7 @@ pipeline {
     registry = "ossuchas/happyrefund"
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
-    image_tag_number = 'v1.28.3'
+    image_tag_number = 'v1.28.4'
   }
   agent any
   stages {
