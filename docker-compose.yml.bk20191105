@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   app:
-    image: docker.io/apthailand/suchat_s:happyrefund_front_v1.0.0
+    image: docker.io/ossuchas/happyrefund:v1.28.2
     build:
         context: .
         dockerfile: ./Dockerfile
