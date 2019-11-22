@@ -46,6 +46,7 @@ export class Ac01viewPageComponent implements OnInit {
         'fullname',
         'remainingtotalamount',
         'tf01_appv_flag',
+        'tf02_appv_date',
         'Memo'
     ];
 

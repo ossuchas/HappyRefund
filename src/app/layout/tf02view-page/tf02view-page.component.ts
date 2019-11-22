@@ -48,6 +48,7 @@ export class Tf02viewPageComponent implements OnInit {
         'fullname',
         'remainingtotalamount',
         'tf01_appv_flag',
+        'tf01_appv_date',
         'Memo'
     ];
 

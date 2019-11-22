@@ -49,6 +49,7 @@ export class AgreviewPageComponent implements OnInit {
         'fullname',
         'remainingtotalamount',
         'tf01_appv_flag',
+        'doc_sent_date',
         'Memo'
     ];
 

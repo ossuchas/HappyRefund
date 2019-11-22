@@ -44,7 +44,7 @@
 
                 <ng-container matColumnDef="transferdateapprove">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>TransferDate</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
                 <!-- <ng-container matColumnDef="contactid">
@@ -66,6 +66,12 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Status</mat-header-cell>
                     <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf02_appv_flag | tf02docstatus }} {{ element.tf01_appv_by }}</mat-cell>
                 </ng-container>
+
+                <ng-container matColumnDef="tf01_appv_date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">TF Appv#1 D/T</mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf01_appv_date| date:'H:mm dd/MM/yy':'UTC'}}</mat-cell>
+                </ng-container>
+
                 <ng-container matColumnDef="Memo">
                     <mat-header-cell *matHeaderCellDef style="direction: rtl">Memo</mat-header-cell>
                     <mat-cell *matCellDef="let row" style="direction: rtl">
