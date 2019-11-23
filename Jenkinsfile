@@ -4,6 +4,8 @@ pipeline {
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
     image_tag_number = 'happyrefund_front_v1.0.4'
+    deployments = 'happyrefund'
+    projects = 'testrepo'
   }
   agent any
   stages {
@@ -30,8 +32,9 @@ pipeline {
     }
     stage('Deploy to OKD') {
       steps{
-          sh 'oc login https://devops01-master.apthai.com:8443 --token=TxEuG9CpgcfNcqdskLt1osM2hSUKPbCGRyypLxLx2pE'
-          sh 'oc project testrepo'
+          sh "oc login --insecure-skip-tls-verify https://devops01-master.apthai.com:8443 -usuchat_s -pP@ssw0rd"
+          sh "oc project $projects"
+          sh "oc patch dc $deployments --patch='{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\": \"$deployments\", \"image\":\"docker.io/$registry:$image_tag_number\"}]}}}}'"
       }
     }
   }
