@@ -3,7 +3,7 @@ pipeline {
     registry = "apthailand/suchat_s"
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
-    image_tag_number = 'happyrefund_front_v1.0.4'
+    image_tag_number = 'happyrefund_front_v1.0.3'
   }
   agent any
   stages {
@@ -26,13 +26,6 @@ pipeline {
             dockerImage.push()
           }
         }
-      }
-    }
-    stage('Deploy to OKD') {
-      steps{
-          sh 'oc login https://devops01-master.apthai.com:8443 --token=TxEuG9CpgcfNcqdskLt1osM2hSUKPbCGRyypLxLx2pE'
-          sh 'oc project testrepo'
-          sh 'oc patch dc happyrefund --patch='{"spec":{"template":{"spec":{"containers":[{"name": "happyrefund", "image":"docker.io/apthailand/suchat_s:happyrefund_front_v1.0.4"}]}}}}'
       }
     }
   }
