@@ -28,7 +28,7 @@
 
                 <ng-container matColumnDef="transferdateapprove">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>TransferDate</mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yyyy'}}</mat-cell>
+                    <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="fullname">
