@@ -69,7 +69,7 @@
 
                 <ng-container matColumnDef="doc_sent_date">
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">CS Doc D/T</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.doc_sent_date| date:'H:mm dd/MM/yy':'UTC'}}</mat-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.doc_sent_date| date:'H:mm dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="Memo">

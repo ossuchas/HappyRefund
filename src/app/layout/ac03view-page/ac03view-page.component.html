@@ -58,7 +58,7 @@
 
                 <ng-container matColumnDef="ac02_appv_date">
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Approved date</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_date | date: 'H:mm dd/MM/yy':'UTC' }}</mat-cell>
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_date | date: 'H:mm dd/MM/yy' }}</mat-cell>
                     <!-- <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_date |date:'full'}}</mat-cell> -->
                 </ng-container>
 

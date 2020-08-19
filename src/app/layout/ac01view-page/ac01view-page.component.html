@@ -69,7 +69,8 @@
 
                 <ng-container matColumnDef="tf02_appv_date">
                     <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">TF Appv#2 D/T</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf02_appv_date| date:'H:mm dd/MM/yy':'UTC'}}</mat-cell>
+                    <!-- <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf02_appv_date| date:'H:mm dd/MM/yy':'UTC'}}</mat-cell> -->
+                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.tf02_appv_date| date:'H:mm dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="Memo">
