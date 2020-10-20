@@ -4,12 +4,31 @@ import { Observable, throwError, Subject } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 import { CrmContactRefund } from '../models';
 import { environment } from 'src/environments/environment';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
+export interface HeaderResponse {
+    pageCount?: number;
+    totalCount?: number;
+    [key: string]: any;
+}
+
+export interface HttpClientRequestOptions {
+    body?: any;
+    headers?: HttpHeaders;
+    observe?: 'body' | 'response';
+    params?: {
+        [param: string]: string;
+    };
+    reportProgress?: boolean;
+    responseType?: 'text';
+    withCredentials?: boolean;
+}
 
 @Injectable({
     providedIn: 'root'
 })
 export class CrmcontactrefundService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     formData: CrmContactRefund;
 
@@ -176,5 +195,28 @@ export class CrmcontactrefundService {
     }
     filter(filterBy: string) {
         this._listeners.next(filterBy);
+    }
+
+
+    exportMemoReturnCustomerNonSignUrl(input?: any, codeStr?: string, options?: HttpClientRequestOptions, token?: string): Observable<any> {
+
+        console.log('token', token);
+        options = {} as HttpClientRequestOptions;
+        options.headers = options.headers || new HttpHeaders();
+        options.headers = options.headers.set('Authorization', 'Bearer ' + token);
+        return this.http.request('post', `http://crmrevo-sale-api-crmrevo-dev.devops-app.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerNonSignUrl`, options);
+    }
+
+    getToken(): Observable<any> {
+        const username = localStorage.getItem('user');
+        const password = localStorage.getItem('password');
+        const optionsloging = {} as HttpClientRequestOptions;
+        optionsloging.body = {
+            grant_type: 'password',
+            username: username,
+            password: password,
+            refresh_token: 'string'
+        };
+        return this.http.request('post', 'http://crmrevo-identity-api-crmrevo-dev.devops-app.apthai.com/api/Token/Login', optionsloging);
     }
 }

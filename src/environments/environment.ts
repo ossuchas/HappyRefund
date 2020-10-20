@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
 //   apiUrl: 'http://192.168.4.11:5002/api/v1',
+  //   apiUrl: 'http://192.168.4.11:5002/api/v1',
   apiUrl: 'https://happyrefundapi.apthai.com/api/v1',
   // apiUrl: 'http://localhost:5000/api/v1',
   memoUrl_1: 'http://www.ap-ir.com/WebSalesReport/Forms/WF_Print_Form_Viewer.aspx?PFID=\

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { AuthenticationService } from '../shared';
 import { first } from 'rxjs/operators';
-import { MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private service: AuthenticationService,
         private snackBar: MatSnackBar
-    ) {}
+    ) { }
 
 
     ngOnInit() {
@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     localStorage.setItem('isLoggedin', 'true');
+                    localStorage.setItem('user', this.username);
+                    localStorage.setItem('password', this.password);
                     this.router.navigate(['/dashboard']);
                 },
                 error => {
