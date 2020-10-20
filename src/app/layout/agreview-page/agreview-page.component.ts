@@ -64,6 +64,8 @@ export class AgreviewPageComponent implements OnInit {
     refreshDataList() {
         // console.log(this.messageAPI);
         this.service.getCSSentList().subscribe(data => {
+            console.log('data', data);
+
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;
             this.listData.sort = this.sort;
@@ -113,11 +115,49 @@ export class AgreviewPageComponent implements OnInit {
             transfernumber +
             '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
         window.open(img_url, '_blank');
+
     }
 
     onPrintPdf(hyrf: CrmContactRefund) {
         // console.log(hyrf);
         const img_url = hyrf.doc_merge_url;
         window.open(img_url, '_blank');
+    }
+
+    openPdf(row: any) {
+        console.log('row', row);
+        const codeStr = '7E82DC53-469C-4D82-AE63-8E4857E052D2';
+        this.service.getToken().subscribe(re => {
+            this.service.exportMemoReturnCustomerNonSignUrl(undefined, codeStr, undefined, re.token).subscribe(data => {
+                console.log('data', data);
+                this.openWindowWithPost(data.url, { params: data.params });
+            });
+        });
+    }
+
+    openWindowWithPost(url, data) {
+        return new Promise<any>(resolve => {
+            setTimeout(() => {
+                const form = document.createElement('form');
+                form.target = '_blank';
+                form.method = 'POST';
+                form.action = url;
+                form.style.display = 'none';
+
+                for (const key in data) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                resolve(true);
+            }, 2000);
+        });
     }
 }
