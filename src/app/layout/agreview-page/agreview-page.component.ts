@@ -125,7 +125,6 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     openPdf(row: any) {
-        console.log('row', row);
         const codeStr = '7E82DC53-469C-4D82-AE63-8E4857E052D2';
         this.service.getToken().subscribe(re => {
             this.service.exportMemoReturnCustomerNonSignUrl(undefined, codeStr, undefined, re.token).subscribe(data => {
