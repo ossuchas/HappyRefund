@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { VwCrmRefundAppv4Service } from 'src/app/shared/services';
+import { VwCrmRefundAppv4Service, CrmcontactrefundService } from 'src/app/shared/services';
 import { CrmContactRefund } from 'src/app/shared';
 
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar, MatPaginator } from '@angular/material';
@@ -12,7 +12,10 @@ import { CrmContactRefundAppv4View } from 'src/app/shared';
     styleUrls: ['./aa00view-page.component.scss']
 })
 export class Aa00viewPageComponent implements OnInit {
-    constructor(private service: VwCrmRefundAppv4Service, private dialog: MatDialog, private snackBar: MatSnackBar) {
+    constructor(private service: VwCrmRefundAppv4Service,
+        private dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        public serviceMaster: CrmcontactrefundService, ) {
         this.service.listen().subscribe((m: any) => {
             console.log(m);
             this.refreshDataList();
@@ -81,5 +84,16 @@ export class Aa00viewPageComponent implements OnInit {
                 '&ExtraQueryString=%7C@NitiBankName*%7C@NitiBankType*1%7C@NitiBankNo*%7C@CustomerBankName*%7C@CustomerBankType*1%7C@CustomerBankNo*%7C@ContactID*';
             window.open(img_url, '_blank');
         }
+    }
+
+    openPdf(row: any) {
+        console.log('row', row);
+        const codeStr = row.transferid;
+        this.serviceMaster.getToken().subscribe(re => {
+            this.serviceMaster.exportMemoReturnCustomerSignUrl(undefined, codeStr, undefined, re.token).subscribe(data => {
+                console.log('data', data);
+                this.serviceMaster.openWindowWithPost(data.url, { params: data.params });
+            });
+        });
     }
 }
