@@ -205,7 +205,7 @@ export class CrmcontactrefundService {
         options = {} as HttpClientRequestOptions;
         options.headers = options.headers || new HttpHeaders();
         options.headers = options.headers.set('Authorization', 'Bearer ' + token);
-        return this.http.request('post', `https://saleapp-crmrevo.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerNonSignUrl`, options);
+        return this.http.request('post', `https://sale-api-crmrevo.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerNonSignUrl`, options);
     }
 
     exportMemoReturnCustomerSignUrl(input?: any, codeStr?: string, options?: HttpClientRequestOptions, token?: string): Observable<any> {
@@ -214,7 +214,7 @@ export class CrmcontactrefundService {
         options = {} as HttpClientRequestOptions;
         options.headers = options.headers || new HttpHeaders();
         options.headers = options.headers.set('Authorization', 'Bearer ' + token);
-        return this.http.request('post', `https://saleapp-crmrevo.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerSignUrl`, options);
+        return this.http.request('post', `https://sale-api-crmrevo.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerSignUrl`, options);
         // return this.http.request('post', `http://crmrevo-sale-api-crmrevo-dev.devops-app.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerSignUrl`, options);
     }
     openWindowWithPost(url, data) {
@@ -253,6 +253,8 @@ export class CrmcontactrefundService {
             password: password,
             refresh_token: 'string'
         };
-        return this.http.request('post', 'http://crmrevo-identity-api-crmrevo-dev.devops-app.apthai.com/api/Token/Login', optionsloging);
+
+        return this.http.request('post', 'https://identity-api-crmrevo.apthai.com/api/Token/Login', optionsloging);
+        // return this.http.request('post', 'http://crmrevo-identity-api-crmrevo-dev.devops-app.apthai.com/api/Token/Login', optionsloging);
     }
 }
