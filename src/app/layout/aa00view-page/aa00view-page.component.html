@@ -113,9 +113,15 @@
                         >
                             <mat-icon>local_printshop</mat-icon>
                         </button>
-                        <button
+                        <!-- <button
                             mat-icon-button
                             (click)="onViewMemo(row.transfernumber, row.hyrf_id)"
+                        >
+                            <mat-icon>message</mat-icon>
+                        </button> -->
+                        <button
+                            mat-icon-button
+                            (click)="openPdf(row)"
                         >
                             <mat-icon>message</mat-icon>
                         </button>
