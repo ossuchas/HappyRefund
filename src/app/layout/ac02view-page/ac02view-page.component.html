@@ -1,5 +1,8 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Final Confirm Document by Accounting'" [icon]="'fa-edit'">
+    <app-page-header
+        [heading]="'Final Confirm Document by Accounting'"
+        [icon]="'fa-edit'"
+    >
     </app-page-header>
     <!-- <div class="container" *ngIf="!isAuthorized">
         <label class="d-flex justify-content-center"><h3>Not Authorized</h3></label>
@@ -12,38 +15,63 @@
             <div class="card-header">ข้อมูลแสดงรายการลูกค้า (รอยืนยันเอกสารทางบัญชี)</div>
             <label>&nbsp;&nbsp;&nbsp;&nbsp; </label>
             <mat-form-field>
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                <input
+                    matInput
+                    (keyup)="applyFilter($event.target.value)"
+                    placeholder="Filter"
+                >
             </mat-form-field>
-            <mat-table [dataSource]="listData" matSort>
+            <mat-table
+                [dataSource]="listData"
+                matSort
+            >
                 <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
                 <mat-row *matRowDef="let row; columns:displayedColumn;"></mat-row>
                 <ng-container matColumnDef="Options">
                     <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
                     <mat-cell *matCellDef="let row">
-                        <button mat-icon-button (click)="onEdit(row)">
+                        <button
+                            mat-icon-button
+                            (click)="onEdit(row)"
+                        >
                             <mat-icon>zoom_in</mat-icon>
                         </button>
-                        <button mat-icon-button (click)="onView(row)">
+                        <button
+                            mat-icon-button
+                            (click)="onView(row)"
+                        >
                             <mat-icon>image_search</mat-icon>
                         </button>
-                        <button mat-icon-button (click)="onPrintPdf(row)">
+                        <button
+                            mat-icon-button
+                            (click)="onPrintPdf(row)"
+                        >
                             <mat-icon>local_printshop</mat-icon>
                         </button>
                     </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="project">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                    >Project Name</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.productid }}:{{ element.project}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="unitnumber">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Unit</mat-header-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                    >Unit</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.unitnumber}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="transferdateapprove">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Transfer D/T</mat-header-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                    >Transfer D/T</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.transferdateapprove | date:'dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
@@ -53,24 +81,48 @@
                 </ng-container> -->
 
                 <ng-container matColumnDef="fullname">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                    >Customer</mat-header-cell>
                     <mat-cell *matCellDef="let element">{{ element.coownername }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="remainingtotalamount">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Refund Amount</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        style="direction: rtl"
+                    >Refund Amount</mat-header-cell>
+                    <mat-cell
+                        *matCellDef="let element"
+                        style="direction: rtl"
+                    >{{ element.remainingtotalamount | number : '1.2-2'}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="tf01_appv_flag">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">Status</mat-header-cell>
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac02_appv_flag | ac02docstatus }} {{ element.ac01_appv_by }}</mat-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        style="direction: rtl"
+                    >Status</mat-header-cell>
+                    <mat-cell
+                        *matCellDef="let element"
+                        style="direction: rtl"
+                    >{{ element.ac02_appv_flag | ac02docstatus }} {{ element.ac01_appv_by }}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="ac01_appv_date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header style="direction: rtl">AC Appv#1 D/T</mat-header-cell>
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        mat-sort-header
+                        style="direction: rtl"
+                    >AC Appv#1 D/T</mat-header-cell>
                     <!-- <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac01_appv_date| date:'H:mm dd/MM/yy':'UTC'}}</mat-cell> -->
-                    <mat-cell *matCellDef="let element" style="direction: rtl">{{ element.ac01_appv_date| date:'H:mm dd/MM/yy'}}</mat-cell>
+                    <mat-cell
+                        *matCellDef="let element"
+                        style="direction: rtl"
+                    >{{ element.ac01_appv_date| date:'H:mm dd/MM/yy'}}</mat-cell>
                 </ng-container>
 
                 <!-- <ng-container matColumnDef="ac02_due_date">
@@ -79,15 +131,30 @@
                 </ng-container> -->
 
                 <ng-container matColumnDef="Memo">
-                    <mat-header-cell *matHeaderCellDef style="direction: rtl">Memo</mat-header-cell>
-                    <mat-cell *matCellDef="let row" style="direction: rtl">
-                        <button mat-icon-button (click)="onViewMemo(row.transfernumber, row.tf02_appv_flag)">
+                    <mat-header-cell
+                        *matHeaderCellDef
+                        style="direction: rtl"
+                    >Memo</mat-header-cell>
+                    <mat-cell
+                        *matCellDef="let row"
+                        style="direction: rtl"
+                    >
+                        <!-- <button mat-icon-button (click)="onViewMemo(row.transfernumber, row.tf02_appv_flag)">
+                            <mat-icon>message</mat-icon>
+                        </button> -->
+                        <button
+                            mat-icon-button
+                            (click)="openPdf(row)"
+                        >
                             <mat-icon>message</mat-icon>
                         </button>
                     </mat-cell>
                 </ng-container>
             </mat-table>
-            <mat-paginator [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons></mat-paginator>
+            <mat-paginator
+                [pageSizeOptions]="[10, 30, 50]"
+                showFirstLastButtons
+            ></mat-paginator>
         </div>
     </div>
 
