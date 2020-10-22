@@ -207,6 +207,40 @@ export class CrmcontactrefundService {
         return this.http.request('post', `http://crmrevo-sale-api-crmrevo-dev.devops-app.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerNonSignUrl`, options);
     }
 
+    exportMemoReturnCustomerSignUrl(input?: any, codeStr?: string, options?: HttpClientRequestOptions, token?: string): Observable<any> {
+
+        console.log('token', token);
+        options = {} as HttpClientRequestOptions;
+        options.headers = options.headers || new HttpHeaders();
+        options.headers = options.headers.set('Authorization', 'Bearer ' + token);
+        return this.http.request('post', `http://crmrevo-sale-api-crmrevo-dev.devops-app.apthai.com/api/RefundMemo/` + codeStr + `/GetExportMemoReturnCustomerSignUrl`, options);
+    }
+    openWindowWithPost(url, data) {
+        return new Promise<any>(resolve => {
+            setTimeout(() => {
+                const form = document.createElement('form');
+                form.target = '_blank';
+                form.method = 'POST';
+                form.action = url;
+                form.style.display = 'none';
+
+                for (const key in data) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                resolve(true);
+            }, 2000);
+        });
+    }
+
     getToken(): Observable<any> {
         const username = localStorage.getItem('user');
         const password = localStorage.getItem('password');

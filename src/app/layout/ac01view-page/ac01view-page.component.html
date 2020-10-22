@@ -134,9 +134,15 @@
                         *matCellDef="let row"
                         style="direction: rtl"
                     >
-                        <button
+                        <!-- <button
                             mat-icon-button
                             (click)="onViewMemo(row.transfernumber, row.tf02_appv_flag)"
+                        >
+                            <mat-icon>message</mat-icon>
+                        </button> -->
+                        <button
+                            mat-icon-button
+                            (click)="openPdf(row)"
                         >
                             <mat-icon>message</mat-icon>
                         </button>

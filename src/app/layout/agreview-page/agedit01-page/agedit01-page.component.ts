@@ -42,6 +42,8 @@ export class Agedit01PageComponent implements OnInit {
     dropdownBankMasterRefresh() {
         this.serviceBank.getBankMaster().subscribe(data => {
             data.forEach(element => {
+                console.log('ชื่อธนาคาร', element);
+
                 this.listItems.push(element['adbankname']);
             });
         });
@@ -50,6 +52,7 @@ export class Agedit01PageComponent implements OnInit {
     dropdownBankNameListRefresh(id: number) {
         this.serviceBankName.getBankAccountName(id).subscribe(data => {
             data.forEach(element => {
+                console.log('ชื่อบัญชีลูกค้า', element);
                 this.listItemsBankName.push(element['fullname']);
             });
         });

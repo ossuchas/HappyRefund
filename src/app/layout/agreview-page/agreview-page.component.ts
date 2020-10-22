@@ -16,6 +16,9 @@ import { AuthenticationService } from 'src/app/shared';
     animations: [routerTransition()]
 })
 export class AgreviewPageComponent implements OnInit {
+
+    transferId: any;
+
     constructor(
         private service: CrmcontactrefundService,
         private dialog: MatDialog,
@@ -65,7 +68,7 @@ export class AgreviewPageComponent implements OnInit {
         // console.log(this.messageAPI);
         this.service.getCSSentList().subscribe(data => {
             console.log('data', data);
-
+            // this.transferId;
             this.listData = new MatTableDataSource(data);
             this.listData.paginator = this.paginator;
             this.listData.sort = this.sort;
@@ -125,38 +128,14 @@ export class AgreviewPageComponent implements OnInit {
     }
 
     openPdf(row: any) {
-        const codeStr = '7E82DC53-469C-4D82-AE63-8E4857E052D2';
+        console.log('row', row);
+        const codeStr = row.transferid;
         this.service.getToken().subscribe(re => {
             this.service.exportMemoReturnCustomerNonSignUrl(undefined, codeStr, undefined, re.token).subscribe(data => {
                 console.log('data', data);
-                this.openWindowWithPost(data.url, { params: data.params });
+                this.service.openWindowWithPost(data.url, { params: data.params });
             });
         });
     }
 
-    openWindowWithPost(url, data) {
-        return new Promise<any>(resolve => {
-            setTimeout(() => {
-                const form = document.createElement('form');
-                form.target = '_blank';
-                form.method = 'POST';
-                form.action = url;
-                form.style.display = 'none';
-
-                for (const key in data) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = data[key];
-                    form.appendChild(input);
-                }
-
-                document.body.appendChild(form);
-                form.submit();
-                document.body.removeChild(form);
-
-                resolve(true);
-            }, 2000);
-        });
-    }
 }

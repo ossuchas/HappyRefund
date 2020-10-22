@@ -113,4 +113,15 @@ export class Ac01viewPageComponent implements OnInit {
         const img_url = hyrf.doc_merge_url;
         window.open(img_url, '_blank');
     }
+
+    openPdf(row: any) {
+        console.log('row', row);
+        const codeStr = row.transferid;
+        this.service.getToken().subscribe(re => {
+            this.service.exportMemoReturnCustomerSignUrl(undefined, codeStr, undefined, re.token).subscribe(data => {
+                console.log('data', data);
+                this.service.openWindowWithPost(data.url, { params: data.params });
+            });
+        });
+    }
 }
